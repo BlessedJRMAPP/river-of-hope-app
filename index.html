@@ -240,13 +240,17 @@ Guidelines:
 
   const Upgrade = () => (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 px-4 pb-6" onClick={() => setShowUpgrade(false)}>
-      <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl" onClick={e => e.stopPropagation()}>
-        <div className="text-center mb-5"><div className="text-3xl mb-1">🌟</div><h2 className="text-xl font-bold text-slate-900">Unlock unlimited support</h2><p className="text-sm text-slate-500 mt-1">You have used your 2 free chats. Upgrade to keep the conversation going — anytime you need it.</p></div>
+      <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+        <div className="text-center mb-5">
+          <div className="text-3xl mb-2">🌊</div>
+          <h2 className="text-xl font-bold text-slate-900">Unlock your full recovery journey</h2>
+          <p className="text-sm text-slate-500 mt-1">You deserve full support — not just a taste of it.</p>
+        </div>
         <div className="space-y-3">
           {[
-            { key: "free", label: "Free", price: "$0", features: ["AI Recovery Chat", "Safety Toolkit", "Daily Scripture & Devotional", "Meeting Finder", "Emergency Contacts"], accent: "border-slate-200 bg-slate-50", btn: "bg-slate-200 text-slate-600" },
-            { key: "premium", label: "Premium", price: "$9.99/mo", badge: "Most Popular", features: ["Everything in Free", "Unlimited AI chat sessions", "Full 30-day devotional library", "Sobriety milestone celebrations", "Relapse journal & mood tracker", "Personalized scripture by trigger"], accent: "border-sky-400 bg-sky-50", btn: "bg-sky-600 text-white" },
-            { key: "family", label: "Family / Sponsor", price: "$14.99/mo", features: ["Everything in Premium", "Share check-ins with sponsor/family", "Group accountability dashboard", "Shared prayer wall"], accent: "border-emerald-400 bg-emerald-50", btn: "bg-emerald-600 text-white" },
+            { key: "free", label: "Free — Get started", price: "$0", badge: "", features: ["2 AI recovery chats", "Today's scripture", "3 devotionals", "Craving timer & breathing reset", "Crisis hotlines", "Emergency contacts", "Meeting finder"], accent: "border-slate-200 bg-slate-50", btn: "bg-slate-200 text-slate-500", btnText: "Current plan" },
+            { key: "premium", label: "Premium Individual", price: "$9.99/mo", badge: "Most Popular", features: ["Unlimited AI conversations — anytime", "All 14 devotionals", "Complete Safety Toolkit", "Unlimited saved verses", "All 4 grounding exercises", "Full relapse prevention plan", "Sobriety milestone celebrations", "Personalized scripture by trigger"], accent: "border-sky-400 bg-sky-50", btn: "bg-sky-600 text-white", btnText: "Unlock full support →" },
+            { key: "family", label: "Premium Family", price: "$39.99/mo", badge: "", features: ["Everything in Premium", "Up to 6 people share the plan", "Each person gets their own experience", "Share with sponsor, family & accountability group", "Perfect for recovery groups"], accent: "border-emerald-400 bg-emerald-50", btn: "bg-emerald-600 text-white", btnText: "Recovery is better together →" },
           ].map(t => (
             <div key={t.key} className={`rounded-2xl border-2 p-4 ${t.accent}`}>
               <div className="flex items-center justify-between mb-2">
@@ -254,15 +258,51 @@ Guidelines:
                 <span className="font-bold text-sky-700">{t.price}</span>
               </div>
               <ul className="space-y-1 mb-3">{t.features.map(f => <li key={f} className="flex items-center gap-2 text-xs text-slate-600"><span className="text-emerald-500 font-bold">✓</span>{f}</li>)}</ul>
-              <button onClick={() => { setProfile(p => ({ ...p, plan: t.key })); setShowUpgrade(false); }} className={`w-full rounded-xl py-2 text-sm font-bold ${profile.plan === t.key ? "bg-slate-200 text-slate-500" : t.btn}`}>{profile.plan === t.key ? "Current plan" : `Select ${t.label}`}</button>
+              <button onClick={() => { setProfile(p => ({ ...p, plan: t.key })); setShowUpgrade(false); }} className={`w-full rounded-xl py-2 text-sm font-bold ${profile.plan === t.key ? "bg-slate-200 text-slate-500" : t.btn}`}>{profile.plan === t.key ? "Current plan" : t.btnText}</button>
             </div>
           ))}
         </div>
-        <div className="mt-4 rounded-2xl bg-amber-50 border border-amber-200 p-3">
-          <p className="text-xs font-bold text-amber-800">🏛️ Churches & Ministries — Partner with us</p>
-          <p className="text-xs text-amber-700 mt-1">Feature your church, programs, and events. Reach people in recovery in your area. Plans from $49/month. Contact Jordan River Ministries on Facebook.</p>
+
+        <div className="mt-4 space-y-3">
+          <div className="rounded-2xl bg-indigo-50 border border-indigo-200 p-4">
+            <p className="text-xs font-bold text-indigo-800">⛪ Church Partner — $99/month</p>
+            <p className="text-xs text-indigo-700 mt-1">Featured church listing · Events promoted · Congregation access · Ministry dashboard. Perfect for churches wanting to support their community in recovery.</p>
+            <button className="mt-2 w-full rounded-xl bg-indigo-600 py-2 text-xs font-bold text-white">Contact us to partner →</button>
+          </div>
+
+          <div className="rounded-2xl bg-amber-50 border border-amber-200 p-4">
+            <p className="text-xs font-bold text-amber-800">🏥 Recovery Partner Plans — From $199/month</p>
+            <p className="text-xs text-amber-700 mt-1">For sober living homes, treatment centers, rehabilitation programs, and reentry organizations. Up to 25, 100, or 500 users.</p>
+            <button className="mt-2 w-full rounded-xl bg-amber-600 py-2 text-xs font-bold text-white">Apply for pricing →</button>
+          </div>
+
+          <div className="rounded-2xl bg-emerald-50 border border-emerald-200 p-4">
+            <p className="text-xs font-bold text-emerald-800">💼 Corporate Wellness & EAP — From $799/month</p>
+            <p className="text-xs text-emerald-700 mt-1">For Employee Assistance Programs, HR wellness benefits, and companies supporting employees in recovery. Up to 250 users. Confidential and clinically informed.</p>
+            <button className="mt-2 w-full rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">Apply for pricing →</button>
+          </div>
+
+          <div className="rounded-2xl bg-slate-50 border border-slate-300 p-4">
+            <p className="text-xs font-bold text-slate-800">🏢 Enterprise — $1,499/month</p>
+            <p className="text-xs text-slate-600 mt-1">For large health systems, hospital networks, insurance providers, and statewide recovery programs. Up to 500 users. Dedicated support included.</p>
+            <button className="mt-2 w-full rounded-xl bg-slate-700 py-2 text-xs font-bold text-white">Apply for pricing →</button>
+          </div>
+
+          <div className="rounded-2xl bg-gradient-to-r from-sky-50 to-indigo-50 border border-indigo-300 p-4">
+            <p className="text-xs font-bold text-indigo-800">⭐ White Label Enterprise — $2,999/month</p>
+            <p className="text-xs text-indigo-700 mt-1">Unlimited users · Your organization's branding · Custom content & devotionals · Dedicated account manager · Perfect for national recovery organizations, large hospital systems, and faith networks wanting their own branded recovery app.</p>
+            <button className="mt-2 w-full rounded-xl bg-indigo-600 py-2 text-xs font-bold text-white">Apply for white label →</button>
+          </div>
+
+          <div className="rounded-2xl bg-rose-50 border border-rose-200 p-4">
+            <p className="text-xs font-bold text-rose-800">🏡 Jordan River Women's Home</p>
+            <p className="text-xs text-rose-700 mt-1">Aftercare residential program for women transitioning out of rehabilitation. Faith-centered structured living with life skills, job readiness, and community support.</p>
+            <button className="mt-2 w-full rounded-xl bg-rose-600 py-2 text-xs font-bold text-white">Apply for housing →</button>
+          </div>
         </div>
-        <button onClick={() => setShowUpgrade(false)} className="mt-4 w-full text-sm text-slate-400 text-center">Close</button>
+
+        <p className="mt-4 text-center text-xs text-slate-400">All plans support Jordan River Ministries mission · Founded by Rev. Dr. Patrishs</p>
+        <button onClick={() => setShowUpgrade(false)} className="mt-3 w-full text-sm text-slate-400 text-center">Close</button>
       </div>
     </div>
   );
@@ -282,7 +322,7 @@ Guidelines:
               <p className="text-sm font-bold text-sky-900">River of Hope</p>
               <p className="text-xs text-slate-400">Jordan River Ministries</p>
             </div>
-            <button onClick={() => setShowUpgrade(true)} className="flex items-center gap-1 rounded-2xl bg-amber-100 px-3 py-1.5 text-xs font-bold text-amber-800">⭐ {profile.plan === "free" ? "Upgrade" : "Premium"}</button>
+            <button onClick={() => setShowUpgrade(true)} className="flex items-center gap-1 rounded-2xl bg-amber-100 px-3 py-1.5 text-xs font-bold text-amber-800">⭐ {profile.plan === "free" ? "Unlock Full Support" : "Premium ✓"}</button>
           </div>
         </header>
 
@@ -417,9 +457,9 @@ Guidelines:
                 </div>
                 {profile.plan === "free" && msgs.filter(m => m.role === "user").length >= 2 && (
                   <div className="mx-3 mb-2 rounded-2xl bg-amber-50 border border-amber-200 p-3 text-center">
-                    <p className="text-xs font-bold text-amber-800">You have used your 2 free chats</p>
-                    <p className="text-xs text-amber-700 mt-1">Upgrade to Premium for unlimited support — anytime, day or night</p>
-                    <button onClick={() => setShowUpgrade(true)} className="mt-2 rounded-xl bg-amber-500 px-4 py-2 text-xs font-bold text-white">Upgrade for unlimited chats →</button>
+                    <p className="text-xs font-bold text-amber-800">You are not alone — and you should not have to stop here.</p>
+                    <p className="text-xs text-amber-700 mt-1">Upgrade to keep this conversation going anytime you need it. Your recovery is worth it.</p>
+                    <button onClick={() => setShowUpgrade(true)} className="mt-2 rounded-xl bg-amber-500 px-4 py-2 text-xs font-bold text-white">Continue your journey →</button>
                   </div>
                 )}
                 {!(profile.plan === "free" && msgs.filter(m => m.role === "user").length >= 2) && (
@@ -539,7 +579,7 @@ Guidelines:
                     <div key={b} className="flex items-center gap-2 text-sm text-white/90"><span>🏡</span>{b}</div>
                   ))}
                 </div>
-                <button onClick={() => setTab("Resources")} className="mt-4 rounded-2xl bg-white px-4 py-3 text-sm font-bold text-rose-600">Apply or learn more</button>
+                <button onClick={() => setShowUpgrade(true)} className="mt-4 rounded-2xl bg-white px-4 py-3 text-sm font-bold text-rose-600">Apply for housing →</button>
               </section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">Testimonies</p>
