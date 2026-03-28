@@ -759,6 +759,14 @@ Guidelines:
                   ))}
                 </div>
               </section>
+              <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Legal</p>
+                <div className="flex gap-3">
+                  <button onClick={() => setTab("Privacy")} className="flex-1 rounded-2xl bg-slate-100 py-3 text-sm font-semibold text-slate-700">Privacy Policy</button>
+                  <button onClick={() => setTab("Terms")} className="flex-1 rounded-2xl bg-slate-100 py-3 text-sm font-semibold text-slate-700">Terms of Service</button>
+                </div>
+              </section>
+
               <section className="rounded-3xl bg-gradient-to-r from-amber-500 to-orange-400 p-5 text-white shadow-lg">
                 <p className="text-xs font-bold uppercase tracking-wider text-amber-100">For churches & ministries</p>
                 <h2 className="mt-1 text-xl font-bold">Partner with River of Hope</h2>
@@ -768,9 +776,122 @@ Guidelines:
             </div>
           )}
 
+
+          {tab === "Privacy" && (
+            <div className="space-y-4">
+              <section className="rounded-3xl bg-gradient-to-r from-sky-700 to-indigo-600 p-5 text-white shadow-lg">
+                <p className="text-xs font-bold uppercase tracking-wider text-white/80">Privacy Policy</p>
+                <h1 className="mt-1 text-2xl font-bold">Your privacy matters.</h1>
+                <p className="mt-2 text-sm text-white/85">Jordan River Ministries · Rev. Dr. Patricia Simmons · Effective: March 2026</p>
+              </section>
+              {[
+                { title: "Information we collect", text: "When you use River of Hope, you may choose to provide your first name, sobriety date, personal goals, triggers, and accountability contacts. Messages entered in the AI Recovery Chat are also processed. All information you enter is stored locally on your device. We do not collect, store, or sell your personal information on our servers." },
+                { title: "How we use your information", text: "Information you provide is used solely to personalize your experience — including your name in greetings, your sobriety streak, and personalized AI responses. We do not share your information with third parties for marketing purposes." },
+                { title: "AI Recovery Chat", text: "The AI Recovery Chat is powered by Anthropic's Claude API. Messages you send are processed by Anthropic to generate responses. Please review Anthropic's Privacy Policy at anthropic.com/privacy. Do not share sensitive financial or identifying information in the chat." },
+                { title: "Children's privacy", text: "River of Hope is not intended for use by children under the age of 13. We do not knowingly collect information from children under 13." },
+                { title: "Crisis situations", text: "River of Hope provides recovery support tools but is not a substitute for professional medical or mental health treatment. If you are in crisis, please contact emergency services (911) or the SAMHSA Helpline at 1-800-662-4357." },
+                { title: "Contact us", text: "For questions about this Privacy Policy, contact Jordan River Ministries through our Facebook page or at riverofhopeapp.com." },
+              ].map((item, i) => (
+                <section key={i} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
+                  <h2 className="text-base font-bold text-slate-900 mb-2">{item.title}</h2>
+                  <p className="text-sm leading-7 text-slate-600">{item.text}</p>
+                </section>
+              ))}
+              <p className="text-center text-xs text-slate-400 pb-4">© 2026 Jordan River Ministries · All rights reserved.</p>
+            </div>
+          )}
+
+          {tab === "Terms" && (
+            <div className="space-y-4">
+              <section className="rounded-3xl bg-gradient-to-r from-indigo-700 to-sky-600 p-5 text-white shadow-lg">
+                <p className="text-xs font-bold uppercase tracking-wider text-white/80">Terms of Service</p>
+                <h1 className="mt-1 text-2xl font-bold">Terms of Service</h1>
+                <p className="mt-2 text-sm text-white/85">Jordan River Ministries · Rev. Dr. Patricia Simmons · Effective: March 2026</p>
+              </section>
+              {[
+                { title: "1. About River of Hope", text: "River of Hope is a faith-based recovery support application created and operated by Jordan River Ministries, founded by Rev. Dr. Patricia Simmons. The app provides recovery tools, scripture, devotionals, community resources, and AI-powered support for people in addiction recovery and hardship." },
+                { title: "2. Not a medical service", text: "River of Hope is a spiritual and practical support tool. It is NOT a medical service, mental health treatment, or substitute for professional counseling. The AI Recovery Chat provides general encouragement and support but is not a licensed therapist or medical professional. Always seek professional help for medical or mental health emergencies." },
+                { title: "3. Emergency situations", text: "If you are in immediate danger or experiencing a life-threatening emergency, call 911 immediately. For addiction crisis support call SAMHSA at 1-800-662-4357 or text HOME to 741741." },
+                { title: "4. Acceptable use", text: "You agree to use River of Hope for its intended purpose — personal recovery support, faith encouragement, and community connection. You agree not to use the app for any unlawful purpose, harm or harass others, share false information, or attempt to copy or reverse engineer the app." },
+                { title: "5. Intellectual property", text: "All content in River of Hope — including devotionals, design, branding, the Jordan River Ministries logo, and the River of Hope name — is the intellectual property of Jordan River Ministries and Rev. Dr. Patricia Simmons. You may not reproduce or distribute content without written permission." },
+                { title: "6. Premium subscriptions", text: "River of Hope offers optional Premium and Family subscription plans. Subscription fees are billed monthly. You may cancel at any time. Refunds are handled on a case-by-case basis at the discretion of Jordan River Ministries." },
+                { title: "7. Disclaimer", text: "River of Hope is provided as is without warranties of any kind. Jordan River Ministries does not guarantee that the app will be available at all times or that AI responses will be error-free. Use of the app is at your own discretion." },
+                { title: "8. Faith-based nature", text: "River of Hope is a Christian faith-based application. Content includes scripture, prayer, and references to God and Jesus Christ. Users of all backgrounds are welcome, and faith content is offered as encouragement, never as requirement." },
+                { title: "9. Contact", text: "For questions about these Terms, contact Jordan River Ministries through our Facebook page or at riverofhopeapp.com." },
+              ].map((item, i) => (
+                <section key={i} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
+                  <h2 className="text-base font-bold text-slate-900 mb-2">{item.title}</h2>
+                  <p className="text-sm leading-7 text-slate-600">{item.text}</p>
+                </section>
+              ))}
+              <p className="text-center text-xs text-slate-400 pb-4">© 2026 Jordan River Ministries · Rev. Dr. Patricia Simmons · All rights reserved.</p>
+            </div>
+          )}
+
+
+          {tab === "Privacy" && (
+            <div className="space-y-4">
+              <section className="rounded-3xl bg-gradient-to-r from-slate-700 to-slate-600 p-5 text-white shadow-lg">
+                <p className="text-xs font-bold uppercase tracking-wider text-white/80">Legal</p>
+                <h1 className="mt-1 text-2xl font-bold">Privacy Policy</h1>
+                <p className="mt-2 text-sm text-white/80">Jordan River Ministries · Effective March 2026</p>
+              </section>
+              {[
+                { title: "Information we collect", body: "When you use River of Hope, you may choose to provide your first name, sobriety date, personal goals, triggers, and accountability contacts. Messages entered in the AI Recovery Chat are also processed. All information you enter is stored locally on your device. We do not collect, store, or sell your personal information on our servers." },
+                { title: "How we use your information", body: "Information you provide is used solely to personalize your experience within the app. We do not share your information with third parties for marketing purposes." },
+                { title: "AI Recovery Chat", body: "The AI Recovery Chat is powered by Anthropic's Claude API. Messages you send are processed by Anthropic to generate responses. Please review Anthropic's Privacy Policy at anthropic.com/privacy. Do not share sensitive financial or identifying information in the chat." },
+                { title: "Children's privacy", body: "River of Hope is not intended for use by children under the age of 13. We do not knowingly collect information from children under 13." },
+                { title: "Crisis situations", body: "River of Hope provides recovery support tools but is not a substitute for professional medical or mental health treatment. If you are in crisis, please contact emergency services (911) or the SAMHSA Helpline at 1-800-662-4357." },
+                { title: "Contact us", body: "For questions about this Privacy Policy, contact Jordan River Ministries through our Facebook page or at riverofhopeapp.com." },
+              ].map((item, i) => (
+                <section key={i} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
+                  <h2 className="text-base font-bold text-slate-900 mb-2">{item.title}</h2>
+                  <p className="text-sm text-slate-600 leading-6">{item.body}</p>
+                </section>
+              ))}
+              <section className="rounded-3xl bg-slate-50 p-4 ring-1 ring-slate-200">
+                <p className="text-xs text-slate-500 text-center">© 2026 Jordan River Ministries · Rev. Dr. Patricia Simmons · All rights reserved.</p>
+              </section>
+            </div>
+          )}
+
+          {tab === "Terms" && (
+            <div className="space-y-4">
+              <section className="rounded-3xl bg-gradient-to-r from-slate-700 to-slate-600 p-5 text-white shadow-lg">
+                <p className="text-xs font-bold uppercase tracking-wider text-white/80">Legal</p>
+                <h1 className="mt-1 text-2xl font-bold">Terms of Service</h1>
+                <p className="mt-2 text-sm text-white/80">Jordan River Ministries · Effective March 2026</p>
+              </section>
+              {[
+                { title: "1. About River of Hope", body: "River of Hope is a faith-based recovery support application created and operated by Jordan River Ministries, founded by Rev. Dr. Patricia Simmons. The app provides recovery tools, scripture, devotionals, community resources, and AI-powered support for people in addiction recovery and hardship." },
+                { title: "2. Not a medical service", body: "River of Hope is a spiritual and practical support tool. It is NOT a medical service, mental health treatment, or substitute for professional counseling. The AI Recovery Chat provides general encouragement and support but is not a licensed therapist or medical professional. Always seek professional help for medical or mental health emergencies." },
+                { title: "3. Emergency situations", body: "If you are in immediate danger or experiencing a life-threatening emergency, call 911 immediately. For addiction crisis support call SAMHSA at 1-800-662-4357 or text HOME to 741741." },
+                { title: "4. Acceptable use", body: "You agree to use River of Hope for its intended purpose — personal recovery support, faith encouragement, and community connection. You agree not to use the app for any unlawful purpose, attempt to harm or exploit other users, share false information, or attempt to reverse engineer or copy the app." },
+                { title: "5. Intellectual property", body: "All content in River of Hope — including devotionals, design, branding, the Jordan River Ministries logo, and the River of Hope name — is the intellectual property of Jordan River Ministries and Rev. Dr. Patricia Simmons. You may not reproduce, distribute, or create derivative works without written permission." },
+                { title: "6. Premium subscriptions", body: "River of Hope offers optional Premium and Family subscription plans. Subscription fees are billed monthly. You may cancel at any time. Refunds are handled on a case-by-case basis at the discretion of Jordan River Ministries." },
+                { title: "7. Disclaimer of warranties", body: "River of Hope is provided as-is without warranties of any kind. Jordan River Ministries does not guarantee that the app will be available at all times or that AI responses will be error-free." },
+                { title: "8. Faith-based nature", body: "River of Hope is a Christian faith-based application. Content includes scripture, prayer, and references to God and Jesus Christ. Users of all backgrounds are welcome, and faith content is offered as encouragement, never as requirement." },
+                { title: "9. Contact", body: "For questions about these Terms, contact Jordan River Ministries through our Facebook page or at riverofhopeapp.com." },
+              ].map((item, i) => (
+                <section key={i} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
+                  <h2 className="text-base font-bold text-slate-900 mb-2">{item.title}</h2>
+                  <p className="text-sm text-slate-600 leading-6">{item.body}</p>
+                </section>
+              ))}
+              <section className="rounded-3xl bg-slate-50 p-4 ring-1 ring-slate-200">
+                <p className="text-xs text-slate-500 text-center">By using River of Hope you agree to these Terms of Service and our Privacy Policy.</p>
+                <p className="text-xs text-slate-400 text-center mt-1">© 2026 Jordan River Ministries · Rev. Dr. Patricia Simmons · All rights reserved.</p>
+              </section>
+            </div>
+          )}
         </main>
 
         {/* Nav */}
+        <div className="flex justify-center gap-4 py-2 border-t border-slate-100 bg-white/95">
+          <button onClick={() => setTab("Privacy")} className="text-xs text-slate-400 hover:text-sky-600">Privacy Policy</button>
+          <span className="text-xs text-slate-300">·</span>
+          <button onClick={() => setTab("Terms")} className="text-xs text-slate-400 hover:text-sky-600">Terms of Service</button>
+        </div>
         <nav className="fixed bottom-0 left-1/2 z-20 flex w-full max-w-md -translate-x-1/2 justify-around border-t border-slate-200 bg-white/95 px-1 py-2 backdrop-blur">
           {[
             { l: "Home", i: "🏠", t: "Home" },
