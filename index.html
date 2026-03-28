@@ -258,7 +258,11 @@ Guidelines:
                 <span className="font-bold text-sky-700">{t.price}</span>
               </div>
               <ul className="space-y-1 mb-3">{t.features.map(f => <li key={f} className="flex items-center gap-2 text-xs text-slate-600"><span className="text-emerald-500 font-bold">✓</span>{f}</li>)}</ul>
-              <button onClick={() => { setProfile(p => ({ ...p, plan: t.key })); setShowUpgrade(false); }} className={`w-full rounded-xl py-2 text-sm font-bold ${profile.plan === t.key ? "bg-slate-200 text-slate-500" : t.btn}`}>{profile.plan === t.key ? "Current plan" : t.btnText}</button>
+              <button onClick={() => { 
+                if (t.key === "premium") window.open("https://buy.stripe.com/aFa28q8h2a4e5Bw92C1VK00", "_blank");
+                else if (t.key === "family") window.open("https://buy.stripe.com/14AfZgfJu4JUe822Ee1VK07", "_blank");
+                else { setProfile(p => ({ ...p, plan: t.key })); setShowUpgrade(false); }
+              }} className={`w-full rounded-xl py-2 text-sm font-bold ${profile.plan === t.key ? "bg-slate-200 text-slate-500" : t.btn}`}>{profile.plan === t.key ? "Current plan" : t.btnText}</button>
             </div>
           ))}
         </div>
@@ -267,31 +271,31 @@ Guidelines:
           <div className="rounded-2xl bg-indigo-50 border border-indigo-200 p-4">
             <p className="text-xs font-bold text-indigo-800">⛪ Church Partner — $99/month</p>
             <p className="text-xs text-indigo-700 mt-1">Featured church listing · Events promoted · Congregation access · Ministry dashboard. Perfect for churches wanting to support their community in recovery.</p>
-            <button className="mt-2 w-full rounded-xl bg-indigo-600 py-2 text-xs font-bold text-white">Contact us to partner →</button>
+            <button onClick={() => window.open("https://buy.stripe.com/14AaEWeFqekuaVQdiS1VK08", "_blank")} className="mt-2 w-full rounded-xl bg-indigo-600 py-2 text-xs font-bold text-white">Subscribe now — $99/month →</button>
           </div>
 
           <div className="rounded-2xl bg-amber-50 border border-amber-200 p-4">
             <p className="text-xs font-bold text-amber-800">🏥 Recovery Partner Plans — From $199/month</p>
             <p className="text-xs text-amber-700 mt-1">For sober living homes, treatment centers, rehabilitation programs, and reentry organizations. Up to 25, 100, or 500 users.</p>
-            <button className="mt-2 w-full rounded-xl bg-amber-600 py-2 text-xs font-bold text-white">Apply for pricing →</button>
+            <button onClick={() => window.open("https://buy.stripe.com/bJe3cu1SE6S29RM1Aa1VK09", "_blank")} className="mt-2 w-full rounded-xl bg-amber-600 py-2 text-xs font-bold text-white">Start with Starter — $199/month →</button>
           </div>
 
           <div className="rounded-2xl bg-emerald-50 border border-emerald-200 p-4">
             <p className="text-xs font-bold text-emerald-800">💼 Corporate Wellness & EAP — From $799/month</p>
             <p className="text-xs text-emerald-700 mt-1">For Employee Assistance Programs, HR wellness benefits, and companies supporting employees in recovery. Up to 250 users. Confidential and clinically informed.</p>
-            <button className="mt-2 w-full rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">Apply for pricing →</button>
+            <button onClick={() => window.open("https://buy.stripe.com/4gMfZg68Ua4e5Bw4Mm1VK06", "_blank")} className="mt-2 w-full rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">Get started — $799/month →</button>
           </div>
 
           <div className="rounded-2xl bg-slate-50 border border-slate-300 p-4">
             <p className="text-xs font-bold text-slate-800">🏢 Enterprise — $1,499/month</p>
             <p className="text-xs text-slate-600 mt-1">For large health systems, hospital networks, insurance providers, and statewide recovery programs. Up to 500 users. Dedicated support included.</p>
-            <button className="mt-2 w-full rounded-xl bg-slate-700 py-2 text-xs font-bold text-white">Apply for pricing →</button>
+            <button onClick={() => window.open("https://buy.stripe.com/14AfZgfJu4JUe822Ee1VK07", "_blank")} className="mt-2 w-full rounded-xl bg-slate-700 py-2 text-xs font-bold text-white">Get started — $1,499/month →</button>
           </div>
 
           <div className="rounded-2xl bg-gradient-to-r from-sky-50 to-indigo-50 border border-indigo-300 p-4">
             <p className="text-xs font-bold text-indigo-800">⭐ White Label Enterprise — $2,999/month</p>
             <p className="text-xs text-indigo-700 mt-1">Unlimited users · Your organization's branding · Custom content & devotionals · Dedicated account manager · Perfect for national recovery organizations, large hospital systems, and faith networks wanting their own branded recovery app.</p>
-            <button className="mt-2 w-full rounded-xl bg-indigo-600 py-2 text-xs font-bold text-white">Apply for white label →</button>
+            <button onClick={() => window.open("https://buy.stripe.com/14AaEWeFqekuaVQdiS1VK08", "_blank")} className="mt-2 w-full rounded-xl bg-indigo-600 py-2 text-xs font-bold text-white">Apply for white label — $2,999/month →</button>
           </div>
 
           <div className="rounded-2xl bg-rose-50 border border-rose-200 p-4">
@@ -579,7 +583,7 @@ Guidelines:
                     <div key={b} className="flex items-center gap-2 text-sm text-white/90"><span>🏡</span>{b}</div>
                   ))}
                 </div>
-                <button onClick={() => setShowUpgrade(true)} className="mt-4 rounded-2xl bg-white px-4 py-3 text-sm font-bold text-rose-600">Apply for housing →</button>
+                <button onClick={() => window.open("mailto:info@jordanriverministries.org?subject=Women%27s%20Home%20Application&body=I%20am%20interested%20in%20applying%20for%20the%20Jordan%20River%20Women%27s%20Home.%20Please%20send%20me%20more%20information.", "_blank")} className="mt-4 rounded-2xl bg-white px-4 py-3 text-sm font-bold text-rose-600">Apply for housing →</button>
               </section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">Testimonies</p>
@@ -1079,7 +1083,7 @@ Guidelines:
                   <div className="rounded-2xl bg-white/15 px-4 py-2"><p className="text-xs font-bold">⭐ Featured event</p><p className="text-xs text-white/80">$49 per event · Logo + full description</p></div>
                   <div className="rounded-2xl bg-white/15 px-4 py-2"><p className="text-xs font-bold">🏆 Monthly sponsor banner</p><p className="text-xs text-white/80">$199/month · Prime placement · Full branding</p></div>
                 </div>
-                <button className="mt-4 rounded-2xl bg-white px-4 py-3 text-sm font-bold text-amber-700">Advertise on the Board →</button>
+                <button onClick={() => window.open("mailto:info@jordanriverministries.org?subject=River%20Community%20Board%20-%20Advertising%20Inquiry&body=I%20am%20interested%20in%20advertising%20on%20the%20River%20Community%20Board.%0A%0AOrganization%20Name:%0AContact%20Name:%0AEmail:%0APhone:%0AType%20of%20listing%20(Featured%20$49/Sponsor%20$199):", "_blank")} className="mt-4 rounded-2xl bg-white px-4 py-3 text-sm font-bold text-amber-700">Advertise on the Board →</button>
               </section>
 
             </div>
