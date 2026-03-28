@@ -145,6 +145,12 @@ function RiverOfHopeApp() {
 
   const sendChat = async () => {
     if (!input.trim() || loading) return;
+    // Check chat limit for free users
+    const chatCount = msgs.filter(m => m.role === "user").length;
+    if (profile.plan === "free" && chatCount >= 2) {
+      setShowUpgrade(true);
+      return;
+    }
     const txt = input.trim(); setInput(""); setLoading(true);
     setMsgs(p => [...p, { role: "user", text: txt }]);
     try {
@@ -235,7 +241,7 @@ Guidelines:
   const Upgrade = () => (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 px-4 pb-6" onClick={() => setShowUpgrade(false)}>
       <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl" onClick={e => e.stopPropagation()}>
-        <div className="text-center mb-5"><div className="text-3xl mb-1">🌟</div><h2 className="text-xl font-bold text-slate-900">Choose your plan</h2><p className="text-sm text-slate-500 mt-1">All plans include the Safety Toolkit and daily Scripture</p></div>
+        <div className="text-center mb-5"><div className="text-3xl mb-1">🌟</div><h2 className="text-xl font-bold text-slate-900">Unlock unlimited support</h2><p className="text-sm text-slate-500 mt-1">You have used your 2 free chats. Upgrade to keep the conversation going — anytime you need it.</p></div>
         <div className="space-y-3">
           {[
             { key: "free", label: "Free", price: "$0", features: ["AI Recovery Chat", "Safety Toolkit", "Daily Scripture & Devotional", "Meeting Finder", "Emergency Contacts"], accent: "border-slate-200 bg-slate-50", btn: "bg-slate-200 text-slate-600" },
@@ -409,10 +415,19 @@ Guidelines:
                   {loading && <div className="flex justify-start"><div className="rounded-3xl bg-slate-100 px-4 py-3 text-sm text-slate-400 animate-pulse">Listening…</div></div>}
                   <div ref={chatEnd} />
                 </div>
-                <div className="p-3 border-t border-slate-100 flex items-center gap-2 rounded-b-3xl bg-slate-50">
-                  <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === "Enter" && sendChat()} className="flex-1 bg-transparent text-sm outline-none placeholder:text-slate-400" placeholder="What's on your heart right now…" />
-                  <button onClick={sendChat} disabled={loading} className="rounded-xl bg-sky-600 px-4 py-2 text-xs font-bold text-white disabled:opacity-40">Send</button>
-                </div>
+                {profile.plan === "free" && msgs.filter(m => m.role === "user").length >= 2 && (
+                  <div className="mx-3 mb-2 rounded-2xl bg-amber-50 border border-amber-200 p-3 text-center">
+                    <p className="text-xs font-bold text-amber-800">You have used your 2 free chats</p>
+                    <p className="text-xs text-amber-700 mt-1">Upgrade to Premium for unlimited support — anytime, day or night</p>
+                    <button onClick={() => setShowUpgrade(true)} className="mt-2 rounded-xl bg-amber-500 px-4 py-2 text-xs font-bold text-white">Upgrade for unlimited chats →</button>
+                  </div>
+                )}
+                {!(profile.plan === "free" && msgs.filter(m => m.role === "user").length >= 2) && (
+                  <div className="p-3 border-t border-slate-100 flex items-center gap-2 rounded-b-3xl bg-slate-50">
+                    <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === "Enter" && sendChat()} className="flex-1 bg-transparent text-sm outline-none placeholder:text-slate-400" placeholder="What's on your heart right now…" />
+                    <button onClick={sendChat} disabled={loading} className="rounded-xl bg-sky-600 px-4 py-2 text-xs font-bold text-white disabled:opacity-40">Send</button>
+                  </div>
+                )}
               </section>
               <section className="rounded-3xl bg-gradient-to-br from-indigo-50 to-sky-50 p-5 shadow-sm ring-1 ring-indigo-100">
                 <p className="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1">Scripture for this moment</p>
