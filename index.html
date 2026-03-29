@@ -8,21 +8,7 @@
 <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyD7sSEM_6EQZIPC_CyzZk6_S321Dgth0YY",
-    authDomain: "river-of-hope-app.firebaseapp.com",
-    projectId: "river-of-hope-app",
-    storageBucket: "river-of-hope-app.firebasestorage.app",
-    messagingSenderId: "448979558888",
-    appId: "1:448979558888:web:11a23433d7d8135618045d"
-  };
-  firebase.initializeApp(firebaseConfig);
-  window.firebaseAuth = firebase.auth();
-  window.googleProvider = new firebase.auth.GoogleAuthProvider();
-</script>
+
 
 <style>
 * { box-sizing: border-box; }
@@ -107,33 +93,36 @@ body { margin: 0; padding: 0; background: #f1f5f9; font-family: -apple-system, B
 </script>
 
 
+
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 <script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyD7sSEM_6EQZIPC_CyzZk6_S321Dgth0YY",
-    authDomain: "river-of-hope-app.firebaseapp.com",
-    projectId: "river-of-hope-app",
-    storageBucket: "river-of-hope-app.firebasestorage.app",
-    messagingSenderId: "448979558888",
-    appId: "1:448979558888:web:11a23433d7d8135618045d"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const googleProvider = new firebase.auth.GoogleAuthProvider();
-  
-  window.signInWithGoogle = function() {
-    return auth.signInWithPopup(googleProvider);
-  };
-  
-  window.signOut = function() {
-    return auth.signOut();
-  };
-  
-  window.onAuthStateChanged = function(callback) {
-    return auth.onAuthStateChanged(callback);
-  };
+  try {
+    const firebaseConfig = {
+      apiKey: "AIzaSyD7sSEM_6EQZIPC_CyzZk6_S321Dgth0YY",
+      authDomain: "river-of-hope-app.firebaseapp.com",
+      projectId: "river-of-hope-app",
+      storageBucket: "river-of-hope-app.firebasestorage.app",
+      messagingSenderId: "448979558888",
+      appId: "1:448979558888:web:11a23433d7d8135618045d"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    window.firebaseAuth = auth;
+    window.signInWithGoogle = function() { return auth.signInWithPopup(googleProvider); };
+    window.signOut = function() { return auth.signOut(); };
+    window.onAuthStateChanged = function(cb) { return auth.onAuthStateChanged(cb); };
+    window.firebaseReady = true;
+  } catch(e) {
+    console.log('Firebase init error:', e);
+    window.firebaseReady = false;
+    window.signInWithGoogle = function() { return Promise.reject('Firebase not available'); };
+    window.signOut = function() { return Promise.resolve(); };
+    window.onAuthStateChanged = function(cb) { cb(null); return function(){}; };
+  }
 </script>
+
 <script type="text/babel">
 const { useState, useEffect, useRef } = React;
 
@@ -218,7 +207,7 @@ function RiverOfHopeApp() {
     return "onboard";
   });
   const [googleUser, setGoogleUser] = useState(null);
-  const [signingIn, setSigningIn] = useState(false);
+  
 
   useEffect(() => {
     if (window.firebaseAuth) {
@@ -287,46 +276,13 @@ function RiverOfHopeApp() {
   const timerRef = useRef(null);
   const breathRef = useRef(null);
   const chatEnd = useRef(null);
-  const [googleUser, setGoogleUser] = useState(null);
-  const [authLoading, setAuthLoading] = useState(true);
+
 
   useEffect(() => {
     try { localStorage.setItem('rohProfile', JSON.stringify(profile)); } catch {}
   }, [profile]);
 
-  useEffect(() => {
-    if (window.onAuthStateChanged) {
-      window.onAuthStateChanged(user => {
-        setGoogleUser(user);
-        setAuthLoading(false);
-        if (user && screen === "onboard") {
-          setProfile(p => ({ ...p, name: p.name || user.displayName?.split(' ')[0] || '' }));
-        }
-      });
-    } else {
-      setAuthLoading(false);
-    }
-  }, []);
 
-  const handleGoogleSignIn = async () => {
-    try {
-      const result = await window.signInWithGoogle();
-      const user = result.user;
-      setGoogleUser(user);
-      if (!profile.name) {
-        setProfile(p => ({ ...p, name: user.displayName?.split(' ')[0] || '' }));
-      }
-    } catch (e) {
-      console.log('Sign in error:', e);
-    }
-  };
-
-  const handleSignOut = async () => {
-    try {
-      await window.signOut();
-      setGoogleUser(null);
-    } catch (e) {}
-  };
 
   useEffect(() => { chatEnd.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs]);
   useEffect(() => {
