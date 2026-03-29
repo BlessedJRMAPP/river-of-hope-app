@@ -15,6 +15,81 @@ body { margin: 0; padding: 0; background: #f1f5f9; font-family: -apple-system, B
 </head>
 <body>
 <div id="root"></div>
+<style>
+  #install-banner { display: none; position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: 448px; background: white; border-radius: 20px; padding: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); z-index: 999; border: 1px solid #e2e8f0; }
+  #install-banner.show { display: block; animation: slideUp 0.3s ease; }
+  @keyframes slideUp { from { transform: translateX(-50%) translateY(20px); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
+  .install-title { font-size: 14px; font-weight: 600; color: #0f172a; margin-bottom: 4px; }
+  .install-sub { font-size: 12px; color: #64748b; margin-bottom: 12px; line-height: 1.5; }
+  .install-steps { font-size: 12px; color: #334155; line-height: 1.8; margin-bottom: 12px; }
+  .install-btn { display: block; width: 100%; text-align: center; background: #0ea5e9; color: white; border: none; border-radius: 12px; padding: 10px; font-size: 13px; font-weight: 600; cursor: pointer; margin-bottom: 8px; }
+  .install-close { display: block; width: 100%; text-align: center; background: none; border: none; color: #94a3b8; font-size: 12px; cursor: pointer; padding: 4px; }
+  .install-logo { width: 40px; height: 40px; border-radius: 10px; float: left; margin-right: 12px; object-fit: contain; background: #f0f9ff; padding: 4px; }
+</style>
+
+<div id="install-banner">
+  <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+    <div style="flex:1;">
+      <div class="install-title">🌊 Add River of Hope to your phone</div>
+      <div class="install-sub">Get the full app experience — one tap from your home screen, anytime you need support.</div>
+    </div>
+    <button class="install-close" onclick="dismissInstall()" style="flex-shrink:0;font-size:18px;padding:0;margin:0;">✕</button>
+  </div>
+  <div id="ios-steps" style="display:none;">
+    <div class="install-steps">
+      <strong>On iPhone (Safari):</strong><br>
+      1. Tap the <strong>Share button</strong> ⬆️ at the bottom<br>
+      2. Scroll down and tap <strong>"Add to Home Screen"</strong><br>
+      3. Tap <strong>"Add"</strong> — done! 🎉
+    </div>
+  </div>
+  <div id="android-steps" style="display:none;">
+    <div class="install-steps">
+      <strong>On Android (Chrome):</strong><br>
+      1. Tap the <strong>three dots ⋮</strong> at the top right<br>
+      2. Tap <strong>"Add to Home screen"</strong><br>
+      3. Tap <strong>"Add"</strong> — done! 🎉
+    </div>
+  </div>
+  <div id="generic-steps">
+    <div class="install-steps">
+      <strong>iPhone:</strong> Tap Share ⬆️ → "Add to Home Screen" → Add<br>
+      <strong>Android:</strong> Tap Menu ⋮ → "Add to Home screen" → Add
+    </div>
+  </div>
+  <button class="install-btn" onclick="dismissInstall()">Got it — I'll add it now! ✓</button>
+  <button class="install-close" onclick="neverInstall()">Don't show again</button>
+</div>
+
+<script>
+  function showInstallBanner() {
+    if (localStorage.getItem('installDismissed')) return;
+    var banner = document.getElementById('install-banner');
+    var ua = navigator.userAgent;
+    var isIOS = /iPhone|iPad|iPod/.test(ua);
+    var isAndroid = /Android/.test(ua);
+    var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+    if (isStandalone) return;
+    if (isIOS) {
+      document.getElementById('ios-steps').style.display = 'block';
+      document.getElementById('generic-steps').style.display = 'none';
+    } else if (isAndroid) {
+      document.getElementById('android-steps').style.display = 'block';
+      document.getElementById('generic-steps').style.display = 'none';
+    }
+    setTimeout(function() { banner.classList.add('show'); }, 3000);
+  }
+  function dismissInstall() {
+    document.getElementById('install-banner').classList.remove('show');
+    sessionStorage.setItem('installDismissed', '1');
+  }
+  function neverInstall() {
+    document.getElementById('install-banner').classList.remove('show');
+    localStorage.setItem('installDismissed', '1');
+  }
+  window.addEventListener('load', showInstallBanner);
+</script>
+
 <script type="text/babel">
 const { useState, useEffect, useRef } = React;
 
@@ -1063,8 +1138,18 @@ Guidelines:
                       </div>
                     </div>
                     <div className="mt-4 space-y-2">
-                      <a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center w-full rounded-2xl bg-emerald-600 py-2 text-xs font-bold text-white">Join on Zoom →</a>
-                      <p className="text-xs text-center text-emerald-700 font-semibold">ID: 780 2277 3920 · Passcode: JRM2026</p>
+                      {event.title.includes("Bible Study") ? (
+                        <>
+                          <a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center w-full rounded-2xl bg-sky-600 py-2 text-xs font-bold text-white">Join 2nd Tuesday on Zoom →</a>
+                          <a href="https://us04web.zoom.us/j/79037279665?pwd=uqwJaVlRPYXNBL2LCiaIGZZeMEpRqk.1" target="_blank" rel="noreferrer" className="block text-center w-full rounded-2xl bg-sky-600 py-2 text-xs font-bold text-white">Join 4th Tuesday on Zoom →</a>
+                          <p className="text-xs text-slate-400 text-center">Passcode: JRM2026 · Starting May 2026</p>
+                        </>
+                      ) : (
+                        <div className="flex gap-2">
+                          <button className="flex-1 rounded-2xl bg-emerald-600 py-2 text-xs font-bold text-white">Learn more</button>
+                          <button className="rounded-2xl border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700">Save</button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -1078,15 +1163,36 @@ Guidelines:
                     <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Submit your event</p>
                     <h2 className="mt-1 text-base font-bold text-slate-900">Have a recovery event to share?</h2>
                     <p className="mt-1 text-sm text-slate-600">Submit your sober event, faith gathering, or community announcement to be listed on the River Community Board.</p>
-                    <div className="mt-3 rounded-2xl bg-slate-50 border border-slate-200 p-3">
-                      <p className="text-xs font-semibold text-slate-700 mb-1">Listing options:</p>
-                      <div className="space-y-1">
-                        <p className="text-xs text-slate-600">✅ Basic listing — <span className="font-bold text-emerald-700">Free</span> · Name, date, location</p>
-                        <p className="text-xs text-slate-600">⭐ Featured listing — <span className="font-bold text-amber-700">$49/event</span> · Logo, description, highlighted</p>
-                        <p className="text-xs text-slate-600">🏆 Monthly sponsor — <span className="font-bold text-sky-700">$199/month</span> · Banner placement, full branding</p>
+                    <div className="mt-3 space-y-2">
+                      <div className="rounded-2xl bg-emerald-50 border border-emerald-200 p-3">
+                        <div className="flex items-center justify-between">
+                          <p className="text-xs font-bold text-emerald-800">✅ Free Basic Listing</p>
+                          <span className="rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white">5 spots/month</span>
+                        </div>
+                        <p className="text-xs text-emerald-700 mt-1">Name, date, location, contact info · 30 days</p>
+                        <a href="mailto:info@jordanriverministries.org?subject=River%20Community%20Board%20-%20Free%20Listing%20Submission&body=Organization%20Name:%0AEvent%20Name:%0ADate:%0ALocation:%0AContact%20Info:%0ADescription:" className="block text-center mt-2 w-full rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">Submit free listing →</a>
+                      </div>
+                      <div className="rounded-2xl bg-amber-50 border border-amber-200 p-3">
+                        <div className="flex items-center justify-between">
+                          <p className="text-xs font-bold text-amber-800">⭐ Featured Listing — $49</p>
+                          <span className="rounded-full bg-amber-500 px-2 py-0.5 text-xs font-bold text-white">7 spots/month</span>
+                        </div>
+                        <p className="text-xs text-amber-700 mt-1">Logo + full description + gold badge + highlighted · 30 days</p>
+                        <a href="https://buy.stripe.com/bJe3cu1SE6S29RM1Aa1VK09" target="_blank" rel="noreferrer" className="block text-center mt-2 w-full rounded-xl bg-amber-500 py-2 text-xs font-bold text-white">Pay & submit featured listing — $49 →</a>
+                      </div>
+                      <div className="rounded-2xl bg-sky-50 border border-sky-200 p-3">
+                        <div className="flex items-center justify-between">
+                          <p className="text-xs font-bold text-sky-800">🏆 Sponsor Banner — $199/month</p>
+                          <span className="rounded-full bg-sky-600 px-2 py-0.5 text-xs font-bold text-white">3 spots only</span>
+                        </div>
+                        <p className="text-xs text-sky-700 mt-1">Prime top placement + full branding + rotating banner</p>
+                        <a href="https://buy.stripe.com/dRm3cugNy2BM3toemW1VK0a" target="_blank" rel="noreferrer" className="block text-center mt-2 w-full rounded-xl bg-sky-600 py-2 text-xs font-bold text-white">Pay & apply for sponsor banner — $199/mo →</a>
                       </div>
                     </div>
-                    <button className="mt-4 w-full rounded-2xl bg-emerald-600 py-3 text-sm font-bold text-white">Submit your event →</button>
+                    <div className="mt-3 rounded-2xl bg-red-50 border border-red-200 p-3">
+                      <p className="text-xs font-bold text-red-700">⚠️ Board policy</p>
+                      <p className="text-xs text-red-600 mt-1">Maximum 15 listings per month · Submit 30 days in advance · Recovery and faith content only · All listings approved by Jordan River Ministries</p>
+                    </div>
                   </div>
                 </div>
               </section>
