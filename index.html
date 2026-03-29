@@ -3,13 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="manifest" href="/manifest.json">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="River of Hope">
-<meta name="theme-color" content="#0ea5e9">
-<link rel="apple-touch-icon" href="/icon-192.png">
+
 <title>River of Hope</title>
 <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
@@ -24,80 +18,9 @@ body { margin: 0; padding: 0; background: #f1f5f9; font-family: -apple-system, B
 </head>
 <body>
 <div id="root"></div>
-<style>
-  #install-banner { display: none; position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: 448px; background: white; border-radius: 20px; padding: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); z-index: 999; border: 1px solid #e2e8f0; }
-  #install-banner.show { display: block; animation: slideUp 0.3s ease; }
-  @keyframes slideUp { from { transform: translateX(-50%) translateY(20px); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
-  .install-title { font-size: 14px; font-weight: 600; color: #0f172a; margin-bottom: 4px; }
-  .install-sub { font-size: 12px; color: #64748b; margin-bottom: 12px; line-height: 1.5; }
-  .install-steps { font-size: 12px; color: #334155; line-height: 1.8; margin-bottom: 12px; }
-  .install-btn { display: block; width: 100%; text-align: center; background: #0ea5e9; color: white; border: none; border-radius: 12px; padding: 10px; font-size: 13px; font-weight: 600; cursor: pointer; margin-bottom: 8px; }
-  .install-close { display: block; width: 100%; text-align: center; background: none; border: none; color: #94a3b8; font-size: 12px; cursor: pointer; padding: 4px; }
-  .install-logo { width: 40px; height: 40px; border-radius: 10px; float: left; margin-right: 12px; object-fit: contain; background: #f0f9ff; padding: 4px; }
-</style>
 
-<div id="install-banner">
-  <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
-    <div style="flex:1;">
-      <div class="install-title">🌊 Add River of Hope to your phone</div>
-      <div class="install-sub">Get the full app experience — one tap from your home screen, anytime you need support.</div>
-    </div>
-    <button class="install-close" onclick="dismissInstall()" style="flex-shrink:0;font-size:18px;padding:0;margin:0;">✕</button>
-  </div>
-  <div id="ios-steps" style="display:none;">
-    <div class="install-steps">
-      <strong>On iPhone (Safari):</strong><br>
-      1. Tap the <strong>Share button</strong> ⬆️ at the bottom<br>
-      2. Scroll down and tap <strong>"Add to Home Screen"</strong><br>
-      3. Tap <strong>"Add"</strong> — done! 🎉
-    </div>
-  </div>
-  <div id="android-steps" style="display:none;">
-    <div class="install-steps">
-      <strong>On Android (Chrome):</strong><br>
-      1. Tap the <strong>three dots ⋮</strong> at the top right<br>
-      2. Tap <strong>"Add to Home screen"</strong><br>
-      3. Tap <strong>"Add"</strong> — done! 🎉
-    </div>
-  </div>
-  <div id="generic-steps">
-    <div class="install-steps">
-      <strong>iPhone:</strong> Tap Share ⬆️ → "Add to Home Screen" → Add<br>
-      <strong>Android:</strong> Tap Menu ⋮ → "Add to Home screen" → Add
-    </div>
-  </div>
-  <button class="install-btn" onclick="dismissInstall()">Got it — I'll add it now! ✓</button>
-  <button class="install-close" onclick="neverInstall()">Don't show again</button>
-</div>
 
-<script>
-  function showInstallBanner() {
-    if (localStorage.getItem('installDismissed')) return;
-    var banner = document.getElementById('install-banner');
-    var ua = navigator.userAgent;
-    var isIOS = /iPhone|iPad|iPod/.test(ua);
-    var isAndroid = /Android/.test(ua);
-    var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-    if (isStandalone) return;
-    if (isIOS) {
-      document.getElementById('ios-steps').style.display = 'block';
-      document.getElementById('generic-steps').style.display = 'none';
-    } else if (isAndroid) {
-      document.getElementById('android-steps').style.display = 'block';
-      document.getElementById('generic-steps').style.display = 'none';
-    }
-    setTimeout(function() { banner.classList.add('show'); }, 3000);
-  }
-  function dismissInstall() {
-    document.getElementById('install-banner').classList.remove('show');
-    sessionStorage.setItem('installDismissed', '1');
-  }
-  function neverInstall() {
-    document.getElementById('install-banner').classList.remove('show');
-    localStorage.setItem('installDismissed', '1');
-  }
-  window.addEventListener('load', showInstallBanner);
-</script>
+
 
 
 
@@ -1374,27 +1297,3 @@ root.render(<RiverOfHopeApp />);
 </script>
 </body>
 </html>
-{
-  "name": "River of Hope",
-  "short_name": "River of Hope",
-  "description": "A faith-based recovery app by Jordan River Ministries",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#f0f9ff",
-  "theme_color": "#0ea5e9",
-  "orientation": "portrait",
-  "icons": [
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ]
-}
