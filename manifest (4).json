@@ -1,0 +1,11 @@
+{
+  "name": "River of Hope",
+  "short_name": "River of Hope",
+  "description": "A faith-based recovery app by Jordan River Ministries",
+  "start_url": "https://riverofhopeapp.com/",
+  "scope": "https://riverofhopeapp.com/",
+  "display": "standalone",
+  "background_color": "#f0f9ff",
+  "theme_color": "#0ea5e9",
+  "orientation": "portrait"
+}
