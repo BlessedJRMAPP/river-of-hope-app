@@ -24,34 +24,7 @@ body { margin: 0; padding: 0; background: #f1f5f9; font-family: -apple-system, B
 
 
 
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-<script>
-  try {
-    const firebaseConfig = {
-      apiKey: "AIzaSyD7sSEM_6EQZIPC_CyzZk6_S321Dgth0YY",
-      authDomain: "river-of-hope-app.firebaseapp.com",
-      projectId: "river-of-hope-app",
-      storageBucket: "river-of-hope-app.firebasestorage.app",
-      messagingSenderId: "448979558888",
-      appId: "1:448979558888:web:11a23433d7d8135618045d"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    window.firebaseAuth = auth;
-    window.signInWithGoogle = function() { return auth.signInWithPopup(googleProvider); };
-    window.signOut = function() { return auth.signOut(); };
-    window.onAuthStateChanged = function(cb) { return auth.onAuthStateChanged(cb); };
-    window.firebaseReady = true;
-  } catch(e) {
-    console.log('Firebase init error:', e);
-    window.firebaseReady = false;
-    window.signInWithGoogle = function() { return Promise.reject('Firebase not available'); };
-    window.signOut = function() { return Promise.resolve(); };
-    window.onAuthStateChanged = function(cb) { cb(null); return function(){}; };
-  }
-</script>
+
 
 <script type="text/babel">
 const { useState, useEffect, useRef } = React;
@@ -437,18 +410,7 @@ Guidelines:
               <p className="text-xs text-slate-400">Jordan River Ministries</p>
             </div>
 <div className="flex items-center gap-2">
-              {googleUser ? (
-                <button onClick={signOut} className="flex items-center gap-1 rounded-2xl bg-emerald-100 px-3 py-1.5 text-xs font-bold text-emerald-800">
-                  {googleUser.photoURL ? <img src={googleUser.photoURL} className="w-5 h-5 rounded-full" alt="" /> : "👤"}
-                  <span className="hidden sm:inline">{googleUser.displayName ? googleUser.displayName.split(' ')[0] : 'Hi!'}</span>
-                </button>
-              ) : (
-                <button onClick={signInWithGoogle} disabled={signingIn} className="flex items-center gap-1 rounded-2xl bg-sky-100 px-3 py-1.5 text-xs font-bold text-sky-800">
-                  {signingIn ? "..." : "Sign in"}
-                </button>
-              )}
-              <button onClick={() => setShowUpgrade(true)} className="flex items-center gap-1 rounded-2xl bg-amber-100 px-3 py-1.5 text-xs font-bold text-amber-800">⭐ {profile.plan === "free" ? "Upgrade" : "Premium ✓"}</button>
-            </div>
+              <button onClick={() => setShowUpgrade(true)} className="flex items-center gap-1 rounded-2xl bg-amber-100 px-3 py-1.5 text-xs font-bold text-amber-800">⭐ {profile.plan === "free" ? "Unlock Full Support" : "Premium ✓"}</button>
           </div>
         </header>
 
