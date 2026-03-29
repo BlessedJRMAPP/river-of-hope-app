@@ -163,9 +163,23 @@ const FAITH_PROGRAMS = [
 ];
 
 function RiverOfHopeApp() {
-  const [screen, setScreen] = useState("onboard");
+  const [screen, setScreen] = useState(() => {
+    try {
+      const saved = localStorage.getItem('rohProfile');
+      if (saved) {
+        const p = JSON.parse(saved);
+        if (p.name) return "main";
+      }
+    } catch {}
+    return "onboard";
+  });
   const [step, setStep] = useState(0);
-  const [profile, setProfile] = useState({ name: "", sobrietyDate: "", trigger: "", sponsor: "", phone: "", goal: "", plan: "free" });
+  const [profile, setProfile] = useState(() => {
+    try {
+      const saved = localStorage.getItem('rohProfile');
+      return saved ? JSON.parse(saved) : { name: "", sobrietyDate: "", trigger: "", sponsor: "", phone: "", goal: "", plan: "free" };
+    } catch { return { name: "", sobrietyDate: "", trigger: "", sponsor: "", phone: "", goal: "", plan: "free" }; }
+  });
   const [tab, setTab] = useState("Home");
   const [msgs, setMsgs] = useState([{ role: "assistant", text: "Welcome! I'm your recovery companion — here for cravings, hard days, fear, and moments of faith. What's on your heart right now?" }]);
   const [input, setInput] = useState("");
@@ -187,6 +201,10 @@ function RiverOfHopeApp() {
   const timerRef = useRef(null);
   const breathRef = useRef(null);
   const chatEnd = useRef(null);
+
+  useEffect(() => {
+    try { localStorage.setItem('rohProfile', JSON.stringify(profile)); } catch {}
+  }, [profile]);
 
   useEffect(() => { chatEnd.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs]);
   useEffect(() => {
@@ -1137,13 +1155,13 @@ Guidelines:
                         <p className="text-xs text-slate-400 mt-1">Contact: {event.contact}</p>
                       </div>
                     </div>
-                    <div className="mt-4 space-y-2">
+                    <div className="mt-4">
                       {event.title.includes("Bible Study") ? (
-                        <>
+                        <div className="space-y-2">
                           <a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center w-full rounded-2xl bg-sky-600 py-2 text-xs font-bold text-white">Join 2nd Tuesday on Zoom →</a>
                           <a href="https://us04web.zoom.us/j/79037279665?pwd=uqwJaVlRPYXNBL2LCiaIGZZeMEpRqk.1" target="_blank" rel="noreferrer" className="block text-center w-full rounded-2xl bg-sky-600 py-2 text-xs font-bold text-white">Join 4th Tuesday on Zoom →</a>
                           <p className="text-xs text-slate-400 text-center">Passcode: JRM2026 · Starting May 2026</p>
-                        </>
+                        </div>
                       ) : (
                         <div className="flex gap-2">
                           <button className="flex-1 rounded-2xl bg-emerald-600 py-2 text-xs font-bold text-white">Learn more</button>
