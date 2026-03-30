@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <title>River of Hope</title>
 <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
 
 
 <style>
@@ -17,113 +18,15 @@ body { margin: 0; padding: 0; background: #f1f5f9; font-family: -apple-system, B
 </head>
 <body>
 <div id="root"></div>
-<style>
-  #install-banner { display: none; position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: 448px; background: white; border-radius: 20px; padding: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); z-index: 999; border: 1px solid #e2e8f0; }
-  #install-banner.show { display: block; animation: slideUp 0.3s ease; }
-  @keyframes slideUp { from { transform: translateX(-50%) translateY(20px); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
-  .install-title { font-size: 14px; font-weight: 600; color: #0f172a; margin-bottom: 4px; }
-  .install-sub { font-size: 12px; color: #64748b; margin-bottom: 12px; line-height: 1.5; }
-  .install-steps { font-size: 12px; color: #334155; line-height: 1.8; margin-bottom: 12px; }
-  .install-btn { display: block; width: 100%; text-align: center; background: #0ea5e9; color: white; border: none; border-radius: 12px; padding: 10px; font-size: 13px; font-weight: 600; cursor: pointer; margin-bottom: 8px; }
-  .install-close { display: block; width: 100%; text-align: center; background: none; border: none; color: #94a3b8; font-size: 12px; cursor: pointer; padding: 4px; }
-  .install-logo { width: 40px; height: 40px; border-radius: 10px; float: left; margin-right: 12px; object-fit: contain; background: #f0f9ff; padding: 4px; }
-</style>
-
-<div id="install-banner">
-  <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
-    <div style="flex:1;">
-      <div class="install-title">🌊 Add River of Hope to your phone</div>
-      <div class="install-sub">Get the full app experience — one tap from your home screen, anytime you need support.</div>
-    </div>
-    <button class="install-close" onclick="dismissInstall()" style="flex-shrink:0;font-size:18px;padding:0;margin:0;">✕</button>
-  </div>
-  <div id="ios-steps" style="display:none;">
-    <div class="install-steps">
-      <strong>On iPhone (Safari):</strong><br>
-      1. Tap the <strong>Share button</strong> ⬆️ at the bottom<br>
-      2. Scroll down and tap <strong>"Add to Home Screen"</strong><br>
-      3. Tap <strong>"Add"</strong> — done! 🎉
-    </div>
-  </div>
-  <div id="android-steps" style="display:none;">
-    <div class="install-steps">
-      <strong>On Android (Chrome):</strong><br>
-      1. Tap the <strong>three dots ⋮</strong> at the top right<br>
-      2. Tap <strong>"Add to Home screen"</strong><br>
-      3. Tap <strong>"Add"</strong> — done! 🎉
-    </div>
-  </div>
-  <div id="generic-steps">
-    <div class="install-steps">
-      <strong>iPhone:</strong> Tap Share ⬆️ → "Add to Home Screen" → Add<br>
-      <strong>Android:</strong> Tap Menu ⋮ → "Add to Home screen" → Add
-    </div>
-  </div>
-  <button class="install-btn" onclick="dismissInstall()">Got it — I'll add it now! ✓</button>
-  <button class="install-close" onclick="neverInstall()">Don't show again</button>
-</div>
-
-<script>
-  function showInstallBanner() {
-    if (localStorage.getItem('installDismissed')) return;
-    var banner = document.getElementById('install-banner');
-    var ua = navigator.userAgent;
-    var isIOS = /iPhone|iPad|iPod/.test(ua);
-    var isAndroid = /Android/.test(ua);
-    var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-    if (isStandalone) return;
-    if (isIOS) {
-      document.getElementById('ios-steps').style.display = 'block';
-      document.getElementById('generic-steps').style.display = 'none';
-    } else if (isAndroid) {
-      document.getElementById('android-steps').style.display = 'block';
-      document.getElementById('generic-steps').style.display = 'none';
-    }
-    setTimeout(function() { banner.classList.add('show'); }, 3000);
-  }
-  function dismissInstall() {
-    document.getElementById('install-banner').classList.remove('show');
-    sessionStorage.setItem('installDismissed', '1');
-  }
-  function neverInstall() {
-    document.getElementById('install-banner').classList.remove('show');
-    localStorage.setItem('installDismissed', '1');
-  }
-  window.addEventListener('load', showInstallBanner);
-</script>
 
 
 
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-<script>
-  try {
-    const firebaseConfig = {
-      apiKey: "AIzaSyD7sSEM_6EQZIPC_CyzZk6_S321Dgth0YY",
-      authDomain: "river-of-hope-app.firebaseapp.com",
-      projectId: "river-of-hope-app",
-      storageBucket: "river-of-hope-app.firebasestorage.app",
-      messagingSenderId: "448979558888",
-      appId: "1:448979558888:web:11a23433d7d8135618045d"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    window.firebaseAuth = auth;
-    window.signInWithGoogle = function() { return auth.signInWithPopup(googleProvider); };
-    window.signOut = function() { return auth.signOut(); };
-    window.onAuthStateChanged = function(cb) { return auth.onAuthStateChanged(cb); };
-    window.firebaseReady = true;
-  } catch(e) {
-    console.log('Firebase init error:', e);
-    window.firebaseReady = false;
-    window.signInWithGoogle = function() { return Promise.reject('Firebase not available'); };
-    window.signOut = function() { return Promise.resolve(); };
-    window.onAuthStateChanged = function(cb) { cb(null); return function(){}; };
-  }
-</script>
 
-<script type="text/babel">
+
+
+
+
+<script type="text/babel" data-presets="react">
 const { useState, useEffect, useRef } = React;
 
 
@@ -206,48 +109,7 @@ function RiverOfHopeApp() {
     } catch {}
     return "onboard";
   });
-  const [googleUser, setGoogleUser] = useState(null);
-  
 
-  useEffect(() => {
-    if (window.firebaseAuth) {
-      window.firebaseAuth.onAuthStateChanged((user) => {
-        if (user) {
-          setGoogleUser(user);
-          try {
-            const saved = localStorage.getItem('rohProfile');
-            if (!saved || !JSON.parse(saved).name) {
-              setProfile(p => ({ ...p, name: user.displayName ? user.displayName.split(' ')[0] : p.name }));
-            }
-          } catch {}
-        } else {
-          setGoogleUser(null);
-        }
-      });
-    }
-  }, []);
-
-  const signInWithGoogle = async () => {
-    setSigningIn(true);
-    try {
-      const result = await window.firebaseAuth.signInWithPopup(window.googleProvider);
-      const user = result.user;
-      setGoogleUser(user);
-      const firstName = user.displayName ? user.displayName.split(' ')[0] : 'friend';
-      setProfile(p => ({ ...p, name: p.name || firstName }));
-      setSigningIn(false);
-    } catch (err) {
-      console.error(err);
-      setSigningIn(false);
-    }
-  };
-
-  const signOut = async () => {
-    try {
-      await window.firebaseAuth.signOut();
-      setGoogleUser(null);
-    } catch {}
-  };
   const [step, setStep] = useState(0);
   const [profile, setProfile] = useState(() => {
     try {
@@ -398,19 +260,6 @@ Guidelines:
               </button>
             </div>
             <button onClick={() => isLast ? setScreen("main") : setStep(x => x + 1)} className="mt-3 w-full text-center text-xs text-slate-400 py-1">Skip this step</button>
-          {step === 0 && (
-            <div className="mt-4">
-              <div className="flex items-center gap-3 my-3">
-                <div className="flex-1 h-px bg-slate-200"></div>
-                <span className="text-xs text-slate-400">or sign in to save your progress</span>
-                <div className="flex-1 h-px bg-slate-200"></div>
-              </div>
-              <button onClick={signInWithGoogle} disabled={signingIn} className="w-full flex items-center justify-center gap-2 rounded-2xl border border-slate-200 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
-                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                {signingIn ? "Signing in..." : "Continue with Google"}
-              </button>
-            </div>
-          )}
           </div>
         </div>
       </div>
@@ -507,18 +356,7 @@ Guidelines:
               <p className="text-xs text-slate-400">Jordan River Ministries</p>
             </div>
 <div className="flex items-center gap-2">
-              {googleUser ? (
-                <button onClick={signOut} className="flex items-center gap-1 rounded-2xl bg-emerald-100 px-3 py-1.5 text-xs font-bold text-emerald-800">
-                  {googleUser.photoURL ? <img src={googleUser.photoURL} className="w-5 h-5 rounded-full" alt="" /> : "👤"}
-                  <span className="hidden sm:inline">{googleUser.displayName ? googleUser.displayName.split(' ')[0] : 'Hi!'}</span>
-                </button>
-              ) : (
-                <button onClick={signInWithGoogle} disabled={signingIn} className="flex items-center gap-1 rounded-2xl bg-sky-100 px-3 py-1.5 text-xs font-bold text-sky-800">
-                  {signingIn ? "..." : "Sign in"}
-                </button>
-              )}
-              <button onClick={() => setShowUpgrade(true)} className="flex items-center gap-1 rounded-2xl bg-amber-100 px-3 py-1.5 text-xs font-bold text-amber-800">⭐ {profile.plan === "free" ? "Upgrade" : "Premium ✓"}</button>
-            </div>
+              <button onClick={() => setShowUpgrade(true)} className="flex items-center gap-1 rounded-2xl bg-amber-100 px-3 py-1.5 text-xs font-bold text-amber-800">⭐ {profile.plan === "free" ? "Unlock Full Support" : "Premium ✓"}</button>
           </div>
         </header>
 
@@ -1360,6 +1198,7 @@ Guidelines:
     </div>
   );
 }
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
