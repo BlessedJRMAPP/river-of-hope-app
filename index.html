@@ -18,7 +18,7 @@ body { margin: 0; padding: 0; background: #f1f5f9; font-family: -apple-system, B
 <script type="text/babel" data-presets="react">
 const { useState, useEffect, useRef } = React;
 
-const JRM_LOGO = "data:image/png;base64,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";
+const JRM_LOGO = "data:image/png;base64,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";
 
 const DAILY_SCRIPTURES = [
   { ref: "Psalm 46:1", text: "God is our refuge and strength, a very present help in trouble." },
@@ -79,127 +79,44 @@ const FAITH_PROGRAMS = [
   { id: 5, name: "Teen Challenge", type: "Residential program", format: "Long-term", desc: "Faith-based residential program for adults with life-controlling issues, including addiction.", address: "Search local Teen Challenge location" },
 ];
 
-// Planning for Success data
+// Planning for Success Data
 const PLANNING_SERVICES = {
   womensHome: {
-    title: "Jordan River Women's Home",
-    icon: "🏠",
-    desc: "Faith-centered residential aftercare for women ready to rebuild their lives with confidence, community, and God.",
-    address: "Syracuse, NY — contact for details",
     lifeSkills: [
-      { title: "Financial Planning", icon: "💰", desc: "Budgeting, debt management, and building a financial foundation for your future.", price: "$85/session", link: "https://buy.stripe.com/cNi5kC1SE3FQ1lg1Aa1VK0i" },
+      { title: "Financial Planning", icon: "💰", desc: "Budgeting, debt management, and building a financial foundation.", price: "$85/session", link: "https://buy.stripe.com/cNi5kC1SE3FQ1lg1Aa1VK0i" },
       { title: "Resume Writing", icon: "📄", desc: "Professional resume tailored for people rebuilding their careers.", price: "$75", link: "https://buy.stripe.com/aFa00igNy90afc6ceO1VK0f" },
-      { title: "Interview & Job Skills", icon: "🎤", desc: "One-on-one interview preparation and job readiness coaching.", price: "$65 single · $150 for 3 sessions", link: "https://buy.stripe.com/eVqdR868U2BM4xs6Uu1VK0g" },
-      { title: "Support Services", icon: "🤝", desc: "Wraparound support connecting you to community resources, housing assistance, and more.", price: "Included in program", link: null },
+      { title: "Interview & Job Skills", icon: "🎤", desc: "One-on-one interview preparation and job readiness coaching.", price: "$65 single · $150 for 3", link: "https://buy.stripe.com/eVqdR868U2BM4xs6Uu1VK0g" },
+      { title: "Support Services", icon: "🤝", desc: "Wraparound support connecting you to community resources.", price: "Included in program", link: null },
     ],
-    applyLink: "mailto:info@jordanriverministries.org?subject=Women%27s%20Home%20Application",
   },
   restartAndGrow: {
-    title: "Restart & Grow Program",
-    icon: "🌱",
-    desc: "A comprehensive life skills program for anyone in the community who is ready to rebuild after addiction or hardship.",
-    lifeSkills: [
-      { title: "Financial Planning", icon: "💰", desc: "Budgeting, debt management, and building a financial foundation for your future.", price: "$85/session", link: "https://buy.stripe.com/cNi5kC1SE3FQ1lg1Aa1VK0i" },
-      { title: "Resume Writing", icon: "📄", desc: "Professional resume tailored for people rebuilding their careers.", price: "$75", link: "https://buy.stripe.com/aFa00igNy90afc6ceO1VK0f" },
-      { title: "Interview & Job Skills — Single", icon: "🎤", desc: "One-on-one interview preparation and job readiness coaching — single session.", price: "$65", link: "https://buy.stripe.com/eVqdR868U2BM4xs6Uu1VK0g" },
-      { title: "Interview & Job Skills — 3 Sessions", icon: "🎤", desc: "Three coaching sessions for comprehensive interview preparation and job readiness.", price: "$150", link: "https://buy.stripe.com/7sYfZg68U2BM1lgfr01VK0h" },
-      { title: "Support Services", icon: "🤝", desc: "Wraparound community support, referrals, and accountability.", price: "Included", link: null },
-    ],
     packages: [
-      { title: "Full Package — Pay in Full", price: "$197", desc: "Complete Restart & Grow program — best value. Includes all life skills services.", link: "https://buy.stripe.com/7sY00ieFq3FQggaceO1VK0d" },
-      { title: "3-Month Program", price: "$75/month", desc: "Full Restart & Grow program over 3 months. Three payments of $75 — $225 total.", link: "https://buy.stripe.com/aFa7sK7cY0tE6FAgv41VK0e" },
+      { title: "Full Package — Pay in Full", price: "$197", desc: "Complete Restart & Grow program — best value. Includes all life skills.", link: "https://buy.stripe.com/7sY00ieFq3FQggaceO1VK0d" },
+      { title: "3-Month Program", price: "$75/month", desc: "Full program over 3 months. Three payments of $75 — $225 total.", link: "https://buy.stripe.com/aFa7sK7cY0tE6FAgv41VK0e" },
+    ],
+    lifeSkills: [
+      { title: "Financial Planning", icon: "💰", desc: "Budgeting, debt management, and financial goal setting.", price: "$85/session", link: "https://buy.stripe.com/cNi5kC1SE3FQ1lg1Aa1VK0i" },
+      { title: "Resume Writing", icon: "📄", desc: "Professional resume tailored for people rebuilding their careers.", price: "$75", link: "https://buy.stripe.com/aFa00igNy90afc6ceO1VK0f" },
+      { title: "Interview & Job Skills — Single", icon: "🎤", desc: "One-on-one interview prep — single session.", price: "$65", link: "https://buy.stripe.com/eVqdR868U2BM4xs6Uu1VK0g" },
+      { title: "Interview & Job Skills — 3 Sessions", icon: "🎤", desc: "Three sessions for comprehensive job readiness.", price: "$150", link: "https://buy.stripe.com/7sYfZg68U2BM1lgfr01VK0h" },
+      { title: "Support Services", icon: "🤝", desc: "Wraparound community support and accountability.", price: "Included", link: null },
     ],
   },
 };
 
 const COACHING_OPTIONS = [
-  {
-    id: "discovery",
-    icon: "🔍",
-    title: "Discovery Session",
-    price: "$35",
-    priceDetail: "One time",
-    desc: "Your first step. A one-time introductory coaching session that unlocks discounted ongoing coaching rates. Come as you are.",
-    link: "https://buy.stripe.com/9B6aEWapa4JU5Bwfr01VK0j",
-    highlight: true,
-  },
-  {
-    id: "ongoing1",
-    icon: "🔄",
-    title: "Ongoing Coaching",
-    price: "$97/month",
-    priceDetail: "2 sessions per month",
-    desc: "Consistent accountability and support. Two coaching sessions per month — ideal rhythm for steady rebuilding.",
-    link: "https://buy.stripe.com/dRmdR8bteb8i6FA6Uu1VK0k",
-  },
-  {
-    id: "ongoing2",
-    icon: "🔄",
-    title: "Ongoing Coaching — Intensive",
-    price: "$147/month",
-    priceDetail: "4 sessions per month",
-    desc: "Weekly coaching sessions — ideal for intensive rebuilding seasons such as active job searching or financial recovery.",
-    link: "https://buy.stripe.com/fZu00i7cY4JU1lg4Mm1VK0l",
-  },
-  {
-    id: "patrishs1",
-    icon: "🙋",
-    title: "1-on-1 with Rev. Dr. Patrishs",
-    price: "$125",
-    priceDetail: "2 sessions · One time",
-    desc: "Two personal coaching sessions directly with Rev. Dr. Patrishs, founder of Jordan River Ministries. Sessions must be scheduled within 90 days of purchase.",
-    link: "https://buy.stripe.com/cNi8wO1SE2BMd3YbaK1VK0s",
-  },
-  {
-    id: "patrishs2",
-    icon: "🙋",
-    title: "1-on-1 with Rev. Dr. Patrishs",
-    price: "$225",
-    priceDetail: "4 sessions · One time",
-    desc: "Four personal coaching sessions with Rev. Dr. Patrishs. Best value — dedicated guidance for your rebuilding journey. Sessions within 90 days.",
-    link: "https://buy.stripe.com/14AeVceFq3FQaVQ4Mm1VK0r",
-  },
+  { id: "discovery", icon: "🔍", title: "Discovery Session", price: "$35", priceDetail: "One time · Start here", desc: "Your first step. Unlocks discounted ongoing coaching rates. Come as you are.", link: "https://buy.stripe.com/9B6aEWapa4JU5Bwfr01VK0j", highlight: true },
+  { id: "ongoing1", icon: "🔄", title: "Ongoing Coaching", price: "$97/month", priceDetail: "2 sessions per month", desc: "Consistent accountability and support for steady rebuilding.", link: "https://buy.stripe.com/dRmdR8bteb8i6FA6Uu1VK0k" },
+  { id: "ongoing2", icon: "🔄", title: "Ongoing Coaching — Intensive", price: "$147/month", priceDetail: "4 sessions per month", desc: "Weekly coaching — ideal for intensive rebuilding seasons.", link: "https://buy.stripe.com/fZu00i7cY4JU1lg4Mm1VK0l" },
+  { id: "patrishs1", icon: "🙋", title: "1-on-1 with Rev. Dr. Patrishs", price: "$125", priceDetail: "2 sessions · One time", desc: "Two personal coaching sessions with Rev. Dr. Patrishs. Schedule within 90 days.", link: "https://buy.stripe.com/cNi8wO1SE2BMd3YbaK1VK0s" },
+  { id: "patrishs2", icon: "🙋", title: "1-on-1 with Rev. Dr. Patrishs", price: "$225", priceDetail: "4 sessions · One time", desc: "Four personal coaching sessions. Best value — schedule within 90 days.", link: "https://buy.stripe.com/14AeVceFq3FQaVQ4Mm1VK0r" },
 ];
 
 const COACH_NETWORK_PLANS = [
-  {
-    id: "starter-monthly",
-    title: "Starter Monthly",
-    price: "$49/month",
-    referrals: "Up to 5 referrals/month",
-    features: ["Directory listing in app", "Community recognition", "JRM network alignment", "Steady client referrals"],
-    link: "https://buy.stripe.com/dRm5kCcxifoybZUbaK1VK0n",
-  },
-  {
-    id: "growth-monthly",
-    title: "Growth Monthly",
-    price: "$97/month",
-    referrals: "Up to 10 referrals/month",
-    features: ["Priority directory listing", "Featured in app & social media", "Community recognition", "Steady client referrals", "Priority placement"],
-    link: "https://buy.stripe.com/28EeVc2WIb8i3to0w61VK0o",
-    featured: true,
-  },
-  {
-    id: "starter-annual",
-    title: "Starter Annual",
-    price: "$447/year",
-    savings: "Save $141 vs monthly",
-    referrals: "Up to 5 referrals/month",
-    features: ["All Starter Monthly benefits", "Annual savings of $141", "3-month minimum commitment", "Auto-renews at same rate"],
-    link: "https://buy.stripe.com/9B6bJ09l66S21lg7Yy1VK0p",
-    terms: "First year: minimum 3-month commitment. Early cancellation forfeits annual discount — reverts to $49/month for months used. Year 2+: non-refundable upon renewal.",
-  },
-  {
-    id: "growth-annual",
-    title: "Growth Annual",
-    price: "$897/year",
-    savings: "Save $267 vs monthly",
-    referrals: "Up to 10 referrals/month",
-    features: ["All Growth Monthly benefits", "Annual savings of $267", "3-month minimum commitment", "Auto-renews at same rate"],
-    link: "https://buy.stripe.com/eVq4gy54Q6S2bZU1Aa1VK0q",
-    featured: true,
-    terms: "First year: minimum 3-month commitment. Early cancellation forfeits annual discount — reverts to $97/month for months used. Year 2+: non-refundable upon renewal.",
-  },
+  { id: "starter-monthly", title: "Starter Monthly", price: "$49/month", referrals: "Up to 5 referrals/month", features: ["Directory listing in app", "Community recognition", "JRM network alignment", "Steady client referrals"], link: "https://buy.stripe.com/dRm5kCcxifoybZUbaK1VK0n" },
+  { id: "growth-monthly", title: "Growth Monthly", price: "$97/month", referrals: "Up to 10 referrals/month", features: ["Priority directory listing", "Featured in app & social media", "Community recognition", "Priority placement"], link: "https://buy.stripe.com/28EeVc2WIb8i3to0w61VK0o", featured: true },
+  { id: "starter-annual", title: "Starter Annual", price: "$447/year", savings: "Save $141 vs monthly", referrals: "Up to 5 referrals/month", features: ["All Starter Monthly benefits", "Save $141 vs monthly", "3-month minimum commitment"], link: "https://buy.stripe.com/9B6bJ09l66S21lg7Yy1VK0p", terms: "First year: 3-month minimum. Early cancellation reverts to $49/month. Year 2+: non-refundable." },
+  { id: "growth-annual", title: "Growth Annual", price: "$897/year", savings: "Save $267 vs monthly", referrals: "Up to 10 referrals/month", features: ["All Growth Monthly benefits", "Save $267 vs monthly", "3-month minimum commitment"], link: "https://buy.stripe.com/eVq4gy54Q6S2bZU1Aa1VK0q", featured: true, terms: "First year: 3-month minimum. Early cancellation reverts to $97/month. Year 2+: non-refundable." },
 ];
 
 const RSVP_LISTS = {};
@@ -239,10 +156,9 @@ function RiverOfHopeApp() {
   const [expandedProgram, setExpandedProgram] = useState(null);
 
   // Planning for Success state
-  const [planningSection, setPlanningSection] = useState("overview"); // overview | womensHome | restartGrow | coaching | coachNetwork
+  const [planningSection, setPlanningSection] = useState("overview");
   const [expandedSkill, setExpandedSkill] = useState(null);
-  const [expandedCoachPlan, setExpandedCoachPlan] = useState(null);
-  const [coachNetworkTab, setCoachNetworkTab] = useState("join"); // join | apply
+  const [coachNetworkTab, setCoachNetworkTab] = useState("join");
   const [coachApplyName, setCoachApplyName] = useState("");
   const [coachApplyEmail, setCoachApplyEmail] = useState("");
   const [coachApplyPhone, setCoachApplyPhone] = useState("");
@@ -333,9 +249,7 @@ function RiverOfHopeApp() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-900 via-sky-800 to-emerald-900 px-4 py-8">
         <div className="w-full max-w-md">
           <div className="mb-8 text-center">
-            <div className="inline-flex h-24 w-24 items-center justify-center rounded-3xl bg-white/20 backdrop-blur mb-3 p-2">
-              <img src={JRM_LOGO} alt="Jordan River Ministries" className="h-full w-full object-contain" />
-            </div>
+            <div className="inline-flex h-24 w-24 items-center justify-center rounded-3xl bg-white/20 backdrop-blur mb-3 p-2"><img src={JRM_LOGO} alt="Jordan River Ministries" className="h-full w-full object-contain" /></div>
             <h1 className="text-3xl font-bold text-white">River of Hope</h1>
             <p className="mt-1 text-sky-200 text-sm">A new life. One day at a time.</p>
             <p className="mt-1 text-sky-300 text-xs">Jordan River Ministries · @revpatrishs</p>
@@ -384,7 +298,7 @@ function RiverOfHopeApp() {
             <div className="text-5xl mb-3">🎉</div>
             <h2 className="text-xl font-bold text-slate-900 mb-2">You're signed up!</h2>
             <p className="text-sm text-slate-600 mb-1">Your RSVP for <strong>{rsvpModal?.eventTitle}</strong> has been received.</p>
-            <p className="text-sm text-slate-500 mb-4">Jordan River Ministries will be in touch. We can't wait to see you!</p>
+            <p className="text-sm text-slate-500 mb-4">Jordan River Ministries will be in touch. We can't wait to see you there!</p>
             <button onClick={() => setRsvpModal(null)} className="rounded-2xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white">Done ✓</button>
           </div>
         )}
@@ -399,11 +313,16 @@ function RiverOfHopeApp() {
           <div className="text-3xl mb-2">🌊</div>
           <h2 className="text-xl font-bold text-slate-900">Your recovery deserves full support</h2>
           <p className="text-sm text-slate-500 mt-1">Don't stop here — unlock everything you need for your journey.</p>
+          <div className="mt-3 rounded-2xl bg-emerald-50 border border-emerald-200 p-3">
+            <p className="text-xs font-bold text-emerald-800">✓ Unlimited AI conversations — anytime you need</p>
+            <p className="text-xs font-bold text-emerald-800 mt-1">✓ All 14 devotionals · Full Safety Toolkit</p>
+            <p className="text-xs font-bold text-emerald-800 mt-1">✓ Sobriety milestone celebrations · Personalized support</p>
+          </div>
         </div>
         <div className="space-y-3">
           {[
             { key: "free", label: "Free — Get started", price: "$0", badge: "", features: ["2 AI recovery chats", "Today's scripture", "3 devotionals", "Craving timer & breathing reset", "Crisis hotlines", "Emergency contacts"], accent: "border-slate-200 bg-slate-50", btn: "bg-slate-200 text-slate-500", btnText: "Current plan", link: null },
-            { key: "premium", label: "Premium Individual", price: "$9.99/mo", badge: "Most Popular", features: ["Unlimited AI conversations", "All 14 devotionals", "Complete Safety Toolkit", "Unlimited saved verses", "All 4 grounding exercises", "Full relapse prevention plan", "Sobriety milestone celebrations"], accent: "border-sky-400 bg-sky-50", btn: "bg-sky-600 text-white", btnText: "Unlock full support →", link: "https://buy.stripe.com/aFa28q8h2a4e5Bw92C1VK00" },
+            { key: "premium", label: "Premium Individual", price: "$9.99/mo", badge: "Most Popular", features: ["Unlimited AI conversations — anytime", "All 14 devotionals", "Complete Safety Toolkit", "Unlimited saved verses", "All 4 grounding exercises", "Full relapse prevention plan", "Sobriety milestone celebrations", "Personalized scripture by trigger"], accent: "border-sky-400 bg-sky-50", btn: "bg-sky-600 text-white", btnText: "Unlock full support →", link: "https://buy.stripe.com/aFa28q8h2a4e5Bw92C1VK00" },
             { key: "family", label: "Premium Family", price: "$39.99/mo", badge: "", features: ["Everything in Premium", "Up to 6 people share the plan", "Share with sponsor, family & accountability group"], accent: "border-emerald-400 bg-emerald-50", btn: "bg-emerald-600 text-white", btnText: "Recovery is better together →", link: "https://buy.stripe.com/14AfZgfJu4JUe822Ee1VK07" },
           ].map(t => (
             <div key={t.key} className={`rounded-2xl border-2 p-4 ${t.accent}`}>
@@ -418,7 +337,7 @@ function RiverOfHopeApp() {
           <p className="text-xs text-indigo-700 mt-1">Featured listing · Events promoted · Congregation access · Ministry dashboard.</p>
           <a href="https://buy.stripe.com/14AaEWeFqekuaVQdiS1VK08" target="_blank" rel="noreferrer" className="mt-2 block text-center w-full rounded-xl bg-indigo-600 py-2 text-xs font-bold text-white">Subscribe now →</a>
         </div>
-        <p className="mt-4 text-center text-xs text-slate-400">All plans support Jordan River Ministries mission</p>
+        <p className="mt-4 text-center text-xs text-slate-400">All plans support Jordan River Ministries mission · Founded by Rev. Dr. Patrishs</p>
         <button onClick={() => setShowUpgrade(false)} className="mt-3 w-full text-sm text-slate-400 text-center">Close</button>
       </div>
     </div>
@@ -431,30 +350,25 @@ function RiverOfHopeApp() {
         <section className="rounded-3xl bg-gradient-to-br from-teal-700 to-emerald-600 p-5 text-white shadow-lg">
           <p className="text-xs font-bold uppercase tracking-wider text-teal-200">Planning for Success</p>
           <h1 className="mt-1 text-2xl font-bold">Your next chapter starts here.</h1>
-          <p className="mt-2 text-sm text-white/85">Life skills, coaching, and community resources — designed for people who are ready to rebuild and thrive.</p>
+          <p className="mt-2 text-sm text-white/85">Life skills, coaching, and resources — designed for people ready to rebuild and thrive.</p>
         </section>
-
         <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-teal-100">
           <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Where do you want to start?</p>
           <div className="space-y-3">
             {[
-              { icon: "🏠", title: "Jordan River Women's Home", sub: "Residential program with Life Skills", color: "bg-rose-50 border-rose-200", btn: "bg-rose-600", section: "womensHome" },
-              { icon: "🌱", title: "Restart & Grow Program", sub: "Life Skills for the community", color: "bg-emerald-50 border-emerald-200", btn: "bg-emerald-600", section: "restartGrow" },
-              { icon: "🔍", title: "Coaching Services", sub: "Discovery · Ongoing · 1-on-1 with Rev. Dr. Patrishs", color: "bg-sky-50 border-sky-200", btn: "bg-sky-600", section: "coaching" },
-              { icon: "🤝", title: "Coach Network", sub: "Join · Network · Contract with JRM", color: "bg-indigo-50 border-indigo-200", btn: "bg-indigo-600", section: "coachNetwork" },
+              { icon: "🏠", title: "Jordan River Women's Home", sub: "Residential program with Life Skills", color: "bg-rose-50 border-rose-200", section: "womensHome" },
+              { icon: "🌱", title: "Restart & Grow Program", sub: "Life Skills for the community", color: "bg-emerald-50 border-emerald-200", section: "restartGrow" },
+              { icon: "🔍", title: "Coaching Services", sub: "Discovery · Ongoing · 1-on-1 with Rev. Dr. Patrishs", color: "bg-sky-50 border-sky-200", section: "coaching" },
+              { icon: "🤝", title: "Coach Network", sub: "Join · Network · Contract with JRM", color: "bg-indigo-50 border-indigo-200", section: "coachNetwork" },
             ].map(item => (
               <button key={item.section} onClick={() => setPlanningSection(item.section)} className={`w-full flex items-center gap-4 rounded-2xl border p-4 text-left hover:-translate-y-0.5 transition ${item.color}`}>
                 <div className="text-3xl">{item.icon}</div>
-                <div className="flex-1">
-                  <p className="text-sm font-bold text-slate-900">{item.title}</p>
-                  <p className="text-xs text-slate-500 mt-0.5">{item.sub}</p>
-                </div>
+                <div className="flex-1"><p className="text-sm font-bold text-slate-900">{item.title}</p><p className="text-xs text-slate-500 mt-0.5">{item.sub}</p></div>
                 <span className="text-slate-400 text-sm">→</span>
               </button>
             ))}
           </div>
         </section>
-
         <section className="rounded-3xl bg-gradient-to-r from-teal-600 to-sky-500 p-5 text-white shadow-lg">
           <p className="text-xs font-bold uppercase tracking-wider text-teal-100">Rev. Dr. Patrishs</p>
           <p className="mt-2 text-sm leading-6 text-white/90">"Planning is an act of faith. When you make a plan, you are declaring that you believe in your future. Let's build that future together."</p>
@@ -464,14 +378,11 @@ function RiverOfHopeApp() {
 
     const renderWomensHome = () => (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-2">
-          <button onClick={() => setPlanningSection("overview")} className="rounded-xl bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-600">← Back</button>
-          <h2 className="text-base font-bold text-slate-900">Jordan River Women's Home</h2>
-        </div>
+        <div className="flex items-center gap-3"><button onClick={() => setPlanningSection("overview")} className="rounded-xl bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-600">← Back</button><h2 className="text-base font-bold text-slate-900">Jordan River Women's Home</h2></div>
         <section className="rounded-3xl bg-gradient-to-br from-rose-600 to-pink-500 p-5 text-white shadow-lg">
           <p className="text-xs font-bold uppercase tracking-wider text-rose-100">Residential Aftercare</p>
           <h1 className="mt-1 text-xl font-bold">Where women come to thrive.</h1>
-          <p className="mt-2 text-sm text-white/90">Faith-centered structured living with life skills, job readiness, financial planning, and community support — for women ready to live out what they learned in recovery.</p>
+          <p className="mt-2 text-sm text-white/90">Faith-centered structured living with life skills, job readiness, financial planning, and community support.</p>
           <p className="mt-2 text-xs text-rose-100">📍 Syracuse, NY — contact for details</p>
         </section>
         <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-rose-100">
@@ -485,12 +396,7 @@ function RiverOfHopeApp() {
                   <div className="flex-1"><p className="text-sm font-semibold text-slate-900">{skill.title}</p><p className="text-xs text-emerald-700 font-bold mt-0.5">{skill.price}</p></div>
                   <span className="text-xs text-slate-400">{expandedSkill === `wh-${i}` ? "▲" : "▼"}</span>
                 </button>
-                {expandedSkill === `wh-${i}` && (
-                  <div className="border-t border-slate-100 px-4 pb-4 pt-3">
-                    <p className="text-sm text-slate-600 mb-3">{skill.desc}</p>
-                    {skill.link && <a href={skill.link} target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-rose-600 py-2 text-xs font-bold text-white">Book this service →</a>}
-                  </div>
-                )}
+                {expandedSkill === `wh-${i}` && (<div className="border-t border-slate-100 px-4 pb-4 pt-3"><p className="text-sm text-slate-600 mb-3">{skill.desc}</p>{skill.link && <a href={skill.link} target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-rose-600 py-2 text-xs font-bold text-white">Book this service →</a>}</div>)}
               </div>
             ))}
           </div>
@@ -498,25 +404,21 @@ function RiverOfHopeApp() {
         <section className="rounded-3xl bg-rose-50 p-5 shadow-sm ring-1 ring-rose-200">
           <h2 className="text-base font-bold text-slate-900 mb-2">Apply for the Women's Home</h2>
           <p className="text-sm text-slate-600 mb-4">Ready to take this step? Contact Jordan River Ministries to begin your application.</p>
-          <a href={PLANNING_SERVICES.womensHome.applyLink} className="block text-center w-full rounded-2xl bg-rose-600 py-3 text-sm font-bold text-white">Apply for housing →</a>
+          <a href="mailto:info@jordanriverministries.org?subject=Women%27s%20Home%20Application" className="block text-center w-full rounded-2xl bg-rose-600 py-3 text-sm font-bold text-white">Apply for housing →</a>
         </section>
       </div>
     );
 
     const renderRestartGrow = () => (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-2">
-          <button onClick={() => setPlanningSection("overview")} className="rounded-xl bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-600">← Back</button>
-          <h2 className="text-base font-bold text-slate-900">Restart & Grow Program</h2>
-        </div>
+        <div className="flex items-center gap-3"><button onClick={() => setPlanningSection("overview")} className="rounded-xl bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-600">← Back</button><h2 className="text-base font-bold text-slate-900">Restart & Grow Program</h2></div>
         <section className="rounded-3xl bg-gradient-to-br from-emerald-700 to-teal-500 p-5 text-white shadow-lg">
           <p className="text-xs font-bold uppercase tracking-wider text-emerald-100">Community Life Skills Program</p>
           <h1 className="mt-1 text-xl font-bold">Build the life you deserve.</h1>
-          <p className="mt-2 text-sm text-white/90">A comprehensive program for anyone in the community who is ready to rebuild after addiction or hardship. Real skills. Real support. Real results.</p>
+          <p className="mt-2 text-sm text-white/90">A comprehensive program for anyone ready to rebuild after addiction or hardship. Real skills. Real support. Real results.</p>
         </section>
         <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-emerald-100">
-          <h2 className="text-base font-bold text-slate-900 mb-1">Program Packages</h2>
-          <p className="text-xs text-slate-400 mb-4">Choose the plan that works for you</p>
+          <h2 className="text-base font-bold text-slate-900 mb-4">Program Packages</h2>
           <div className="space-y-3">
             {PLANNING_SERVICES.restartAndGrow.packages.map((pkg, i) => (
               <div key={i} className={`rounded-2xl border-2 p-4 ${i === 0 ? "border-emerald-400 bg-emerald-50" : "border-slate-200"}`}>
@@ -530,8 +432,7 @@ function RiverOfHopeApp() {
           </div>
         </section>
         <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-emerald-100">
-          <h2 className="text-base font-bold text-slate-900 mb-1">Life Skills Curriculum</h2>
-          <p className="text-xs text-slate-400 mb-4">Individual services also available</p>
+          <h2 className="text-base font-bold text-slate-900 mb-4">Life Skills Curriculum</h2>
           <div className="space-y-3">
             {PLANNING_SERVICES.restartAndGrow.lifeSkills.map((skill, i) => (
               <div key={i} className="rounded-2xl border border-slate-200 overflow-hidden">
@@ -540,12 +441,7 @@ function RiverOfHopeApp() {
                   <div className="flex-1"><p className="text-sm font-semibold text-slate-900">{skill.title}</p><p className="text-xs text-emerald-700 font-bold mt-0.5">{skill.price}</p></div>
                   <span className="text-xs text-slate-400">{expandedSkill === `rg-${i}` ? "▲" : "▼"}</span>
                 </button>
-                {expandedSkill === `rg-${i}` && (
-                  <div className="border-t border-slate-100 px-4 pb-4 pt-3">
-                    <p className="text-sm text-slate-600 mb-3">{skill.desc}</p>
-                    {skill.link && <a href={skill.link} target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-emerald-600 py-2 text-xs font-bold text-white">Book this service →</a>}
-                  </div>
-                )}
+                {expandedSkill === `rg-${i}` && (<div className="border-t border-slate-100 px-4 pb-4 pt-3"><p className="text-sm text-slate-600 mb-3">{skill.desc}</p>{skill.link && <a href={skill.link} target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-emerald-600 py-2 text-xs font-bold text-white">Book this service →</a>}</div>)}
               </div>
             ))}
           </div>
@@ -555,19 +451,16 @@ function RiverOfHopeApp() {
 
     const renderCoaching = () => (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-2">
-          <button onClick={() => setPlanningSection("overview")} className="rounded-xl bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-600">← Back</button>
-          <h2 className="text-base font-bold text-slate-900">Coaching Services</h2>
-        </div>
+        <div className="flex items-center gap-3"><button onClick={() => setPlanningSection("overview")} className="rounded-xl bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-600">← Back</button><h2 className="text-base font-bold text-slate-900">Coaching Services</h2></div>
         <section className="rounded-3xl bg-gradient-to-br from-sky-700 to-indigo-600 p-5 text-white shadow-lg">
           <p className="text-xs font-bold uppercase tracking-wider text-sky-200">Personal Coaching</p>
           <h1 className="mt-1 text-xl font-bold">You don't have to figure it out alone.</h1>
-          <p className="mt-2 text-sm text-white/90">Start with a Discovery Session to find the right coach for you — then build from there at a pace that works for your life and budget.</p>
+          <p className="mt-2 text-sm text-white/90">Start with a Discovery Session to find the right coach — then build from there at your own pace.</p>
         </section>
         <section className="rounded-3xl bg-amber-50 border-2 border-amber-300 p-5 shadow-sm">
           <div className="flex items-center gap-2 mb-2"><span className="rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white">Start Here</span></div>
           <h2 className="text-base font-bold text-slate-900">🔍 Discovery Session — $35</h2>
-          <p className="text-sm text-slate-600 mt-1 mb-3">Your first step. A one-time introductory coaching session that unlocks discounted ongoing coaching rates. This is how we find the right coach for you. Come as you are.</p>
+          <p className="text-sm text-slate-600 mt-1 mb-3">Your first step. A one-time introductory session that unlocks discounted ongoing coaching rates. Come as you are.</p>
           <a href="https://buy.stripe.com/9B6aEWapa4JU5Bwfr01VK0j" target="_blank" rel="noreferrer" className="block text-center w-full rounded-2xl bg-amber-500 py-3 text-sm font-bold text-white">Book your Discovery Session →</a>
         </section>
         <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
@@ -575,148 +468,89 @@ function RiverOfHopeApp() {
           <div className="space-y-3">
             {COACHING_OPTIONS.filter(c => !c.highlight).map((option, i) => (
               <div key={i} className={`rounded-2xl border p-4 ${option.id.includes("patrishs") ? "border-indigo-300 bg-indigo-50" : "border-slate-200"}`}>
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-lg">{option.icon}</span>
-                      <p className="text-sm font-bold text-slate-900">{option.title}</p>
-                    </div>
-                    <p className="text-lg font-bold text-sky-700 mt-1">{option.price}</p>
-                    <p className="text-xs font-semibold text-slate-500">{option.priceDetail}</p>
-                    <p className="text-xs text-slate-600 mt-2">{option.desc}</p>
-                  </div>
-                </div>
+                <div className="flex items-center gap-2 flex-wrap mb-1"><span className="text-lg">{option.icon}</span><p className="text-sm font-bold text-slate-900">{option.title}</p></div>
+                <p className="text-lg font-bold text-sky-700">{option.price}</p>
+                <p className="text-xs font-semibold text-slate-500">{option.priceDetail}</p>
+                <p className="text-xs text-slate-600 mt-2">{option.desc}</p>
                 <a href={option.link} target="_blank" rel="noreferrer" className={`mt-3 block text-center rounded-2xl py-2 text-xs font-bold text-white ${option.id.includes("patrishs") ? "bg-indigo-600" : "bg-sky-600"}`}>Book now →</a>
               </div>
             ))}
           </div>
-        </section>
-        <section className="rounded-3xl bg-indigo-50 p-5 shadow-sm ring-1 ring-indigo-200">
-          <p className="text-xs font-bold uppercase tracking-wider text-indigo-700 mb-2">Need more guidance?</p>
-          <p className="text-sm text-slate-600">Not sure which option is right for you? Start with the Discovery Session — it is designed to help you find your best path forward.</p>
-          <button onClick={() => setPlanningSection("coachNetwork")} className="mt-3 w-full rounded-2xl border border-indigo-300 py-2 text-xs font-bold text-indigo-700">View Coach Network →</button>
         </section>
       </div>
     );
 
     const renderCoachNetwork = () => (
       <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-2">
-          <button onClick={() => setPlanningSection("overview")} className="rounded-xl bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-600">← Back</button>
-          <h2 className="text-base font-bold text-slate-900">JRM Coach Network</h2>
-        </div>
+        <div className="flex items-center gap-3"><button onClick={() => setPlanningSection("overview")} className="rounded-xl bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-600">← Back</button><h2 className="text-base font-bold text-slate-900">JRM Coach Network</h2></div>
         <section className="rounded-3xl bg-gradient-to-br from-indigo-700 to-purple-600 p-5 text-white shadow-lg">
           <p className="text-xs font-bold uppercase tracking-wider text-indigo-200">Coach Network</p>
           <h1 className="mt-1 text-xl font-bold">We bring you the clients. You bring your gift.</h1>
-          <p className="mt-2 text-sm text-white/90">Join a network of faith-aligned coaches making a real difference in the lives of people rebuilding after addiction and hardship.</p>
+          <p className="mt-2 text-sm text-white/90">Join a network of faith-aligned coaches making a real difference in people rebuilding after hardship.</p>
         </section>
-
         <div className="flex rounded-2xl bg-slate-100 p-1">
           <button onClick={() => setCoachNetworkTab("join")} className={`flex-1 rounded-xl py-2 text-xs font-bold transition ${coachNetworkTab === "join" ? "bg-white text-indigo-700 shadow" : "text-slate-500"}`}>Membership Plans</button>
           <button onClick={() => setCoachNetworkTab("apply")} className={`flex-1 rounded-xl py-2 text-xs font-bold transition ${coachNetworkTab === "apply" ? "bg-white text-indigo-700 shadow" : "text-slate-500"}`}>Apply to Join</button>
         </div>
-
         {coachNetworkTab === "join" && (
           <div className="space-y-4">
             <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-indigo-100">
-              <h2 className="text-base font-bold text-slate-900 mb-1">What you receive</h2>
-              <div className="space-y-2 mt-3">
-                {["Steady client referrals through the River of Hope app", "Directory listing in the JRM Coach Network", "Community recognition within JRM and Syracuse", "Alignment with a trusted, established ministry", "Letter from JRM documenting contributed service value upon request"].map((b, i) => (
-                  <div key={i} className="flex items-start gap-2"><span className="text-emerald-500 font-bold mt-0.5">✓</span><p className="text-sm text-slate-700">{b}</p></div>
-                ))}
-              </div>
-              <div className="mt-4 rounded-2xl bg-slate-50 border border-slate-200 p-3">
-                <p className="text-xs text-slate-500 italic">Coaches in the JRM Network offer their services at a reduced rate to make professional support accessible to our community. Coaches are encouraged to consult their tax professional regarding any potential benefits of contributed services.</p>
-              </div>
-            </section>
-
-            <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-indigo-100">
-              <h2 className="text-base font-bold text-slate-900 mb-1">First step — Registration</h2>
+              <h2 className="text-base font-bold text-slate-900 mb-3">Registration Fee — $25 one time</h2>
               <div className="rounded-2xl border-2 border-indigo-300 bg-indigo-50 p-4">
-                <p className="text-sm font-bold text-slate-900">📋 Registration Fee — $25 one time</p>
-                <p className="text-xs text-slate-600 mt-1">One-time application and onboarding fee. Covers your application review, profile setup, and network onboarding. Non-refundable. Paid once upon joining — separate from your membership fee.</p>
+                <p className="text-xs text-slate-600">One-time application and onboarding fee. Covers your application review, profile setup, and network onboarding. Non-refundable. Paid once upon joining — separate from your membership fee.</p>
                 <a href="https://buy.stripe.com/4gM3cu40M7W62pk6Uu1VK0t" target="_blank" rel="noreferrer" className="mt-3 block text-center rounded-2xl bg-indigo-600 py-2 text-xs font-bold text-white">Pay Registration Fee →</a>
               </div>
             </section>
-
             <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-indigo-100">
               <h2 className="text-base font-bold text-slate-900 mb-4">Membership Plans</h2>
               <div className="space-y-3">
                 {COACH_NETWORK_PLANS.map((plan, i) => (
                   <div key={i} className={`rounded-2xl border-2 p-4 ${plan.featured ? "border-indigo-400 bg-indigo-50" : "border-slate-200"}`}>
                     <div className="flex items-center justify-between mb-1">
-                      <div className="flex items-center gap-2">
-                        <p className="text-sm font-bold text-slate-900">{plan.title}</p>
-                        {plan.featured && <span className="rounded-full bg-indigo-600 px-2 py-0.5 text-xs font-bold text-white">Popular</span>}
-                      </div>
+                      <div className="flex items-center gap-2"><p className="text-sm font-bold text-slate-900">{plan.title}</p>{plan.featured && <span className="rounded-full bg-indigo-600 px-2 py-0.5 text-xs font-bold text-white">Popular</span>}</div>
                       <p className="text-sm font-bold text-indigo-700">{plan.price}</p>
                     </div>
                     {plan.savings && <p className="text-xs font-bold text-emerald-700 mb-1">💰 {plan.savings}</p>}
                     <p className="text-xs font-semibold text-slate-600 mb-2">📨 {plan.referrals}</p>
                     <ul className="space-y-1 mb-3">{plan.features.map((f, j) => <li key={j} className="flex items-start gap-2 text-xs text-slate-600"><span className="text-emerald-500 font-bold">✓</span>{f}</li>)}</ul>
-                    {plan.terms && (
-                      <div className="rounded-xl bg-slate-50 border border-slate-200 p-2 mb-3">
-                        <p className="text-xs text-slate-500 italic">{plan.terms}</p>
-                      </div>
-                    )}
+                    {plan.terms && <div className="rounded-xl bg-slate-50 border border-slate-200 p-2 mb-3"><p className="text-xs text-slate-500 italic">{plan.terms}</p></div>}
                     <a href={plan.link} target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-indigo-600 py-2 text-xs font-bold text-white">Choose this plan →</a>
                   </div>
                 ))}
               </div>
             </section>
-
             <section className="rounded-3xl bg-slate-50 p-5 shadow-sm ring-1 ring-slate-200">
               <h2 className="text-sm font-bold text-slate-900 mb-2">The math at a glance</h2>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <div className="flex justify-between text-xs text-slate-600"><span>Starter Monthly x 12</span><span className="font-bold">$588/year</span></div>
                 <div className="flex justify-between text-xs text-slate-600"><span>Starter Annual</span><span className="font-bold text-emerald-700">$447/year — Save $141</span></div>
                 <div className="border-t border-slate-200 my-1" />
                 <div className="flex justify-between text-xs text-slate-600"><span>Growth Monthly x 12</span><span className="font-bold">$1,164/year</span></div>
                 <div className="flex justify-between text-xs text-slate-600"><span>Growth Annual</span><span className="font-bold text-emerald-700">$897/year — Save $267</span></div>
               </div>
-              <p className="text-xs text-slate-400 mt-3 italic">Annual plans auto-renew. First year: 3-month minimum — early cancellation reverts to monthly rate. Year 2+: non-refundable upon renewal.</p>
+              <p className="text-xs text-slate-400 mt-3 italic">Coaches are encouraged to consult their tax professional regarding any potential benefits of contributed services.</p>
             </section>
           </div>
         )}
-
         {coachNetworkTab === "apply" && (
           <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-indigo-100">
-            {!coachApplySubmitted ? (
-              <>
-                <h2 className="text-base font-bold text-slate-900 mb-1">Apply to Join the JRM Coach Network</h2>
-                <p className="text-sm text-slate-500 mb-4">Tell us about yourself. We will be in touch to discuss next steps.</p>
-                <div className="space-y-3">
-                  <div><label className="text-xs font-bold text-slate-700 block mb-1">Full Name *</label><input value={coachApplyName} onChange={e => setCoachApplyName(e.target.value)} className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-400" placeholder="Your full name" /></div>
-                  <div><label className="text-xs font-bold text-slate-700 block mb-1">Email Address *</label><input type="email" value={coachApplyEmail} onChange={e => setCoachApplyEmail(e.target.value)} className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-400" placeholder="your@email.com" /></div>
-                  <div><label className="text-xs font-bold text-slate-700 block mb-1">Phone Number *</label><input type="tel" value={coachApplyPhone} onChange={e => setCoachApplyPhone(e.target.value)} className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-400" placeholder="555-000-0000" /></div>
-                  <div><label className="text-xs font-bold text-slate-700 block mb-1">Coaching Specialty *</label><input value={coachApplySpecialty} onChange={e => setCoachApplySpecialty(e.target.value)} className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-400" placeholder="e.g. Life coaching, financial coaching, career coaching…" /></div>
-                  <div><label className="text-xs font-bold text-slate-700 block mb-1">Brief Bio *</label><textarea value={coachApplyBio} onChange={e => setCoachApplyBio(e.target.value)} rows={3} className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-400 resize-none" placeholder="Tell us about your background, experience, and why you want to join the JRM network…" /></div>
-                  <div className="rounded-2xl bg-indigo-50 border border-indigo-200 p-3">
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input type="checkbox" checked={coachTermsAgreed} onChange={e => setCoachTermsAgreed(e.target.checked)} className="mt-0.5 h-4 w-4 rounded accent-indigo-600" />
-                      <span className="text-xs text-slate-600">I understand that JRM Network coaches offer services at a reduced rate for JRM clients, and that I am encouraged to consult my own tax professional regarding any potential benefits. I agree to align with JRM's faith-based, recovery-focused values.</span>
-                    </label>
-                  </div>
-                  <p className="text-xs text-slate-400">Your application will be reviewed by Jordan River Ministries. We will contact you within 3-5 business days.</p>
-                  <button
-                    onClick={() => {
-                      if (!coachApplyName.trim() || !coachApplyEmail.trim() || !coachApplyPhone.trim() || !coachTermsAgreed) return;
-                      const subject = encodeURIComponent("JRM Coach Network Application");
-                      const body = encodeURIComponent(`New Coach Network Application\n\nName: ${coachApplyName}\nEmail: ${coachApplyEmail}\nPhone: ${coachApplyPhone}\nSpecialty: ${coachApplySpecialty}\nBio: ${coachApplyBio}`);
-                      window.location.href = `mailto:info@jordanriverministries.org?subject=${subject}&body=${body}`;
-                      setCoachApplySubmitted(true);
-                    }}
-                    disabled={!coachApplyName.trim() || !coachApplyEmail.trim() || !coachApplyPhone.trim() || !coachTermsAgreed}
-                    className="w-full rounded-2xl bg-indigo-600 py-3 text-sm font-bold text-white disabled:opacity-40"
-                  >Submit Application →</button>
-                </div>
-              </>
-            ) : (
+            {!coachApplySubmitted ? (<>
+              <h2 className="text-base font-bold text-slate-900 mb-1">Apply to Join the JRM Coach Network</h2>
+              <p className="text-sm text-slate-500 mb-4">Tell us about yourself. We will be in touch to discuss next steps.</p>
+              <div className="space-y-3">
+                <div><label className="text-xs font-bold text-slate-700 block mb-1">Full Name *</label><input value={coachApplyName} onChange={e => setCoachApplyName(e.target.value)} className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-400" placeholder="Your full name" /></div>
+                <div><label className="text-xs font-bold text-slate-700 block mb-1">Email Address *</label><input type="email" value={coachApplyEmail} onChange={e => setCoachApplyEmail(e.target.value)} className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-400" placeholder="your@email.com" /></div>
+                <div><label className="text-xs font-bold text-slate-700 block mb-1">Phone Number *</label><input type="tel" value={coachApplyPhone} onChange={e => setCoachApplyPhone(e.target.value)} className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-400" placeholder="555-000-0000" /></div>
+                <div><label className="text-xs font-bold text-slate-700 block mb-1">Coaching Specialty *</label><input value={coachApplySpecialty} onChange={e => setCoachApplySpecialty(e.target.value)} className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-400" placeholder="e.g. Life coaching, financial coaching, career coaching…" /></div>
+                <div><label className="text-xs font-bold text-slate-700 block mb-1">Brief Bio *</label><textarea value={coachApplyBio} onChange={e => setCoachApplyBio(e.target.value)} rows={3} className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-indigo-400 resize-none" placeholder="Tell us about your background, experience, and why you want to join the JRM network…" /></div>
+                <div className="rounded-2xl bg-indigo-50 border border-indigo-200 p-3"><label className="flex items-start gap-3 cursor-pointer"><input type="checkbox" checked={coachTermsAgreed} onChange={e => setCoachTermsAgreed(e.target.checked)} className="mt-0.5 h-4 w-4 rounded accent-indigo-600" /><span className="text-xs text-slate-600">I understand that JRM Network coaches offer services at a reduced rate for JRM clients. I agree to align with JRM's faith-based, recovery-focused values. I am encouraged to consult my own tax professional regarding any potential benefits.</span></label></div>
+                <button onClick={() => { if (!coachApplyName.trim() || !coachApplyEmail.trim() || !coachApplyPhone.trim() || !coachTermsAgreed) return; const subject = encodeURIComponent("JRM Coach Network Application"); const body = encodeURIComponent(`New Coach Network Application\n\nName: ${coachApplyName}\nEmail: ${coachApplyEmail}\nPhone: ${coachApplyPhone}\nSpecialty: ${coachApplySpecialty}\nBio: ${coachApplyBio}`); window.location.href = `mailto:info@jordanriverministries.org?subject=${subject}&body=${body}`; setCoachApplySubmitted(true); }} disabled={!coachApplyName.trim() || !coachApplyEmail.trim() || !coachApplyPhone.trim() || !coachTermsAgreed} className="w-full rounded-2xl bg-indigo-600 py-3 text-sm font-bold text-white disabled:opacity-40">Submit Application →</button>
+              </div>
+            </>) : (
               <div className="text-center py-6">
                 <div className="text-5xl mb-3">🎉</div>
                 <h2 className="text-xl font-bold text-slate-900 mb-2">Application Received!</h2>
-                <p className="text-sm text-slate-600 mb-1">Thank you for applying to the JRM Coach Network.</p>
-                <p className="text-sm text-slate-500 mb-4">We will review your application and be in touch within 3-5 business days. We are excited about what God is doing through coaches like you.</p>
+                <p className="text-sm text-slate-600 mb-4">We will review your application and be in touch within 3-5 business days.</p>
                 <button onClick={() => { setCoachApplySubmitted(false); setCoachNetworkTab("join"); }} className="rounded-2xl bg-indigo-600 px-6 py-3 text-sm font-bold text-white">View membership plans →</button>
               </div>
             )}
@@ -757,6 +591,7 @@ function RiverOfHopeApp() {
 
         <main className="flex-1 px-4 pb-36 pt-4">
 
+          {/* ── HOME ── */}
           {tab === "Home" && (
             <div className="space-y-4">
               <section className="rounded-3xl bg-gradient-to-br from-sky-700 to-emerald-600 p-5 text-white shadow-lg">
@@ -765,7 +600,6 @@ function RiverOfHopeApp() {
                 {d !== null && <div className="mt-2 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-sm"><span className="font-bold text-lg">{d}</span><span className="text-sky-100">days of freedom 🕊️</span></div>}
                 {profile.goal && <p className="mt-2 text-xs text-sky-200 italic">"{profile.goal}"</p>}
               </section>
-
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <div className="flex gap-3 items-start">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-xl">✝️</div>
@@ -776,7 +610,6 @@ function RiverOfHopeApp() {
                   </div>
                 </div>
               </section>
-
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <div className="flex items-start justify-between gap-3"><div><h2 className="text-lg font-bold">How are you right now?</h2><p className="text-sm text-slate-500 mt-0.5">Choose one — we'll guide your next step.</p></div><span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800">Check-in</span></div>
                 <div className="mt-4 grid grid-cols-3 gap-3">
@@ -787,7 +620,6 @@ function RiverOfHopeApp() {
                   ))}
                 </div>
               </section>
-
               <section className="rounded-3xl bg-gradient-to-br from-indigo-50 to-sky-50 p-5 shadow-sm ring-1 ring-indigo-100">
                 <div className="flex items-start justify-between gap-3">
                   <div><p className="text-xs font-bold uppercase tracking-wider text-indigo-700">Today's Scripture</p><blockquote className="mt-2 text-base font-semibold leading-relaxed text-slate-900">"{todayVerse.text}"</blockquote><p className="mt-1 text-sm font-bold text-indigo-600">{todayVerse.ref}</p></div>
@@ -795,10 +627,9 @@ function RiverOfHopeApp() {
                 </div>
                 <div className="mt-4 flex gap-2">
                   <button onClick={() => setSaved(v => [...v, todayVerse])} className="rounded-xl bg-indigo-600 px-4 py-2 text-xs font-bold text-white">Save verse</button>
-                  <button onClick={() => setTab("Devotional")} className="rounded-xl border border-indigo-200 px-4 py-2 text-xs font-semibold text-indigo-700">All devotionals →</button>
+                  <button onClick={() => { setTab("Devotional"); setTimeout(() => devoRef.current?.scrollIntoView({ behavior: "smooth" }), 200); }} className="rounded-xl border border-indigo-200 px-4 py-2 text-xs font-semibold text-indigo-700">All devotionals →</button>
                 </div>
               </section>
-
               <section className="rounded-3xl bg-gradient-to-r from-red-500 to-orange-500 p-5 text-white shadow-lg">
                 <h2 className="text-lg font-bold">I need help right now</h2>
                 <p className="mt-1 text-sm text-white/85">Fast support for cravings, fear, or relapse risk.</p>
@@ -808,7 +639,6 @@ function RiverOfHopeApp() {
                   ))}
                 </div>
               </section>
-
               <section>
                 <h2 className="text-base font-bold text-slate-800 mb-3">Quick access</h2>
                 <div className="grid grid-cols-2 gap-3">
@@ -819,7 +649,6 @@ function RiverOfHopeApp() {
                   ))}
                 </div>
               </section>
-
               <section className="rounded-3xl bg-emerald-50 p-5 shadow-sm ring-1 ring-emerald-200">
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">JRM Bible/Prayer Support Group</p>
                 <h2 className="mt-1 text-base font-bold text-slate-900">2nd & 4th Tuesday each month</h2>
@@ -830,14 +659,12 @@ function RiverOfHopeApp() {
                   <button onClick={() => setTab("Resources")} className="rounded-2xl border border-emerald-300 py-3 text-sm font-bold text-emerald-700">Learn more →</button>
                 </div>
               </section>
-
               <section className="rounded-3xl bg-gradient-to-r from-teal-600 to-emerald-500 p-5 text-white shadow-lg">
                 <p className="text-xs font-bold uppercase tracking-wider text-teal-100">Planning for Success</p>
                 <h2 className="mt-1 text-xl font-bold">Ready to rebuild your life?</h2>
                 <p className="mt-2 text-sm text-white/90">Life skills, coaching, resume writing, financial planning, and a network of coaches ready to walk with you.</p>
                 <button onClick={() => setTab("Planning")} className="mt-4 rounded-2xl bg-white px-4 py-3 text-sm font-bold text-teal-700">Start planning →</button>
               </section>
-
               <section className="rounded-3xl bg-gradient-to-r from-pink-500 to-rose-500 p-5 text-white shadow-lg">
                 <p className="text-xs font-bold uppercase tracking-wider text-pink-100">Jordan River Women's Home</p>
                 <h2 className="mt-1 text-xl font-bold">Aftercare for women ready to thrive.</h2>
@@ -847,6 +674,7 @@ function RiverOfHopeApp() {
             </div>
           )}
 
+          {/* ── CHAT ── */}
           {tab === "Chat" && (
             <div className="space-y-4">
               <section className="rounded-3xl bg-gradient-to-r from-sky-600 to-emerald-500 p-5 text-white shadow-lg">
@@ -872,6 +700,7 @@ function RiverOfHopeApp() {
                 {profile.plan === "free" && msgs.filter(m => m.role === "user").length >= 2 && (
                   <div className="mx-3 mb-2 rounded-2xl bg-amber-50 border border-amber-200 p-3 text-center">
                     <p className="text-xs font-bold text-amber-800">You are not alone — and you should not have to stop here.</p>
+                    <p className="text-xs text-amber-700 mt-1">Upgrade to keep this conversation going anytime you need it.</p>
                     <button onClick={() => setShowUpgrade(true)} className="mt-2 rounded-xl bg-amber-500 px-4 py-2 text-xs font-bold text-white">Continue your journey →</button>
                   </div>
                 )}
@@ -885,18 +714,20 @@ function RiverOfHopeApp() {
             </div>
           )}
 
+          {/* ── PLANNING FOR SUCCESS ── */}
           {tab === "Planning" && <PlanningTab />}
 
+          {/* ── DEVOTIONAL ── */}
           {tab === "Devotional" && (
             <div className="space-y-4">
               <section className="rounded-3xl bg-gradient-to-br from-indigo-700 to-sky-600 p-5 text-white shadow-lg">
                 <p className="text-xs font-bold uppercase tracking-wider text-indigo-200">Daily Devotional</p>
                 <h1 className="mt-1 text-2xl font-bold">Words for your soul.</h1>
-                <p className="mt-2 text-sm text-white/80">14 devotionals for people in recovery.</p>
+                <p className="mt-2 text-sm text-white/80">14 devotionals for people in recovery. Tap any title below to jump straight to it.</p>
               </section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100" ref={devoRef}>
                 <h2 className="text-base font-bold text-slate-900 mb-1">All readings</h2>
-                <p className="text-xs text-slate-400 mb-3">Tap a title to jump to that devotional</p>
+                <p className="text-xs text-slate-400 mb-3">↑ Tap a title to open the devotional above</p>
                 <div className="space-y-2">
                   {DEVOTIONALS.map((dv, i) => (
                     <button key={i} onClick={() => scrollToDevo(i)} className={`w-full flex items-center gap-3 rounded-2xl px-4 py-3 text-left transition ${devoIdx === i ? "bg-indigo-50 border-2 border-indigo-300" : "border border-slate-200 hover:bg-slate-50"}`}>
@@ -921,23 +752,21 @@ function RiverOfHopeApp() {
                   </div>
                 </section>
               ))}
-              {saved.length > 0 && (<section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100"><h2 className="text-base font-bold text-slate-900 mb-3">Saved</h2><div className="space-y-2">{saved.map((v, i) => <div key={i} className="rounded-2xl bg-indigo-50 px-4 py-3"><p className="text-sm font-bold text-indigo-800">{v.ref}</p><p className="text-xs text-indigo-600 mt-0.5">{v.text}</p></div>)}</div></section>)}
+              {saved.length > 0 && (<section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100"><h2 className="text-base font-bold text-slate-900 mb-3">Saved verses & readings</h2><div className="space-y-2">{saved.map((v, i) => <div key={i} className="rounded-2xl bg-indigo-50 px-4 py-3"><p className="text-sm font-bold text-indigo-800">{v.ref}</p><p className="text-xs text-indigo-600 mt-0.5">{v.text}</p></div>)}</div></section>)}
             </div>
           )}
 
+          {/* ── COMMUNITY ── */}
           {tab === "Community" && (
             <div className="space-y-4">
-              <section className="rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-500 p-5 text-white shadow-lg">
-                <h1 className="mt-1 text-2xl font-bold">Community is part of your recovery.</h1>
-                <p className="mt-2 text-sm text-white/85">Sober fun, real friendships, testimony, and belonging.</p>
-              </section>
+              <section className="rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-500 p-5 text-white shadow-lg"><h1 className="mt-1 text-2xl font-bold">Community is part of your recovery.</h1><p className="mt-2 text-sm text-white/85">Sober fun, real friendships, testimony, and belonging.</p></section>
               <section className="rounded-3xl bg-emerald-50 p-5 shadow-sm ring-1 ring-emerald-200">
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">JRM Bible/Prayer Support Group</p>
                 <h2 className="mt-1 text-base font-bold text-slate-900">2nd & 4th Tuesday of each month</h2>
                 <p className="mt-1 text-sm text-slate-600">Reformed Church in Syracuse · 1228 Teall Ave, Syracuse, NY 13206</p>
                 <div className="mt-4 space-y-2">
                   <a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center w-full rounded-2xl bg-emerald-600 py-3 text-sm font-bold text-white">Join on Zoom →</a>
-                  <button onClick={() => openRsvp("jrm-bible", "JRM Bible/Prayer Support Group")} className="w-full rounded-2xl border border-emerald-300 py-3 text-sm font-bold text-emerald-700">RSVP →</button>
+                  <button onClick={() => openRsvp("jrm-bible", "JRM Bible/Prayer Support Group")} className="w-full rounded-2xl border border-emerald-300 py-3 text-sm font-bold text-emerald-700">RSVP — JRM Bible/Prayer Support Group</button>
                 </div>
               </section>
               <section className="rounded-3xl bg-gradient-to-r from-pink-500 to-rose-500 p-5 text-white shadow-lg">
@@ -949,8 +778,8 @@ function RiverOfHopeApp() {
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-pink-100">
                 <p className="text-xs font-bold uppercase tracking-wider text-pink-600">Women's Recovery Brunch</p>
                 <h2 className="mt-1 text-base font-bold text-slate-900">Quarterly — Syracuse, NY</h2>
-                <p className="mt-1 text-sm text-slate-600">A special gathering for women in recovery. Faith, food, fellowship, and encouragement.</p>
-                <button onClick={() => openRsvp("womens-brunch", "Women's Recovery Brunch")} className="mt-3 w-full rounded-2xl bg-pink-600 py-3 text-sm font-bold text-white">RSVP →</button>
+                <p className="mt-1 text-sm text-slate-600">A special gathering for women in recovery. Faith, food, fellowship, and encouragement. All women welcome.</p>
+                <button onClick={() => openRsvp("womens-brunch", "Women's Recovery Brunch")} className="mt-3 w-full rounded-2xl bg-pink-600 py-3 text-sm font-bold text-white">RSVP — Add me to the list →</button>
               </section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">Sober fun ideas</p>
@@ -963,12 +792,10 @@ function RiverOfHopeApp() {
             </div>
           )}
 
+          {/* ── SAFETY ── */}
           {tab === "Safety" && (
             <div className="space-y-4">
-              <section className="rounded-3xl bg-gradient-to-r from-red-600 to-orange-500 p-5 text-white shadow-lg">
-                <h1 className="mt-1 text-2xl font-bold">Your relapse prevention tools.</h1>
-                <p className="mt-2 text-sm text-white/85">When the urge hits — use this. Move fast. Reach out. Take the next right step.</p>
-              </section>
+              <section className="rounded-3xl bg-gradient-to-r from-red-600 to-orange-500 p-5 text-white shadow-lg"><h1 className="mt-1 text-2xl font-bold">Your relapse prevention tools.</h1><p className="mt-2 text-sm text-white/85">When the urge hits — use this. Move fast. Reach out. Take the next right step.</p></section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <div className="flex items-start justify-between gap-3 mb-4"><div><p className="text-xs font-bold uppercase tracking-wider text-orange-600">Craving counter</p><h2 className="mt-0.5 text-lg font-bold">Ride out the urge</h2><p className="mt-0.5 text-sm text-slate-500">Most cravings peak and pass in 15–20 minutes.</p></div></div>
                 <div className="flex flex-col items-center gap-4">
@@ -993,12 +820,7 @@ function RiverOfHopeApp() {
                 <p className="text-xs font-bold uppercase tracking-wider text-red-600 mb-1">Relapse prevention plan</p>
                 <h2 className="text-lg font-bold text-slate-900 mb-4">When the urge is close — do this now.</h2>
                 <div className="space-y-3">
-                  {RELAPSE_STEPS.map(s => (
-                    <div key={s.n} className="flex gap-3 rounded-2xl border border-slate-200 px-4 py-3">
-                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">{s.n}</div>
-                      <div><p className="text-sm font-semibold text-slate-900">{s.title}</p><p className="text-xs text-slate-500 mt-0.5">{s.desc}</p></div>
-                    </div>
-                  ))}
+                  {RELAPSE_STEPS.map(s => (<div key={s.n} className="flex gap-3 rounded-2xl border border-slate-200 px-4 py-3"><div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">{s.n}</div><div><p className="text-sm font-semibold text-slate-900">{s.title}</p><p className="text-xs text-slate-500 mt-0.5">{s.desc}</p></div></div>))}
                 </div>
               </section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
@@ -1019,9 +841,7 @@ function RiverOfHopeApp() {
               </section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <div className="flex items-center justify-between mb-4"><div><p className="text-xs font-bold uppercase tracking-wider text-sky-700">Emergency contacts</p><h2 className="mt-0.5 text-lg font-bold">Reach someone now</h2></div><button onClick={() => setAddingContact(a => !a)} className="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800">+ Add</button></div>
-                <div className="space-y-3">
-                  {contacts.map(c => (<div key={c.id} className="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-3"><div><p className="text-sm font-semibold text-slate-900">{c.name}</p><p className="text-xs text-slate-500">{c.role}{c.phone ? ` · ${c.phone}` : ""}</p></div>{c.phone && <a href={`tel:${c.phone}`} className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-600 text-lg">📞</a>}</div>))}
-                </div>
+                <div className="space-y-3">{contacts.map(c => (<div key={c.id} className="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-3"><div><p className="text-sm font-semibold text-slate-900">{c.name}</p><p className="text-xs text-slate-500">{c.role}{c.phone ? ` · ${c.phone}` : ""}</p></div>{c.phone && <a href={`tel:${c.phone}`} className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-600 text-lg">📞</a>}</div>))}</div>
                 {addingContact && (<div className="mt-4 space-y-3 rounded-2xl bg-sky-50 border border-sky-200 p-4">
                   <input value={newContact.name} onChange={e => setNewContact(p => ({ ...p, name: e.target.value }))} className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none" placeholder="Name" />
                   <input value={newContact.phone} onChange={e => setNewContact(p => ({ ...p, phone: e.target.value }))} className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none" placeholder="Phone number" />
@@ -1031,13 +851,12 @@ function RiverOfHopeApp() {
               </section>
               <section className="rounded-3xl bg-gradient-to-r from-red-500 to-orange-500 p-5 text-white shadow-lg">
                 <p className="text-xs font-bold uppercase tracking-wider text-white/80 mb-3">National crisis lines</p>
-                <div className="space-y-2">
-                  {HOTLINES.map(h => (<div key={h.name} className="flex items-center justify-between rounded-2xl bg-white/15 px-4 py-3"><div><p className="text-sm font-bold">{h.name}</p><p className="text-xs text-white/80">{h.number}</p></div>{h.tel && <a href={`tel:${h.tel}`} className="shrink-0 rounded-xl bg-white/20 px-3 py-2 text-xs font-bold">Call</a>}</div>))}
-                </div>
+                <div className="space-y-2">{HOTLINES.map(h => (<div key={h.name} className="flex items-center justify-between rounded-2xl bg-white/15 px-4 py-3"><div><p className="text-sm font-bold">{h.name}</p><p className="text-xs text-white/80">{h.number}</p></div>{h.tel && <a href={`tel:${h.tel}`} className="shrink-0 rounded-xl bg-white/20 px-3 py-2 text-xs font-bold">Call</a>}</div>))}</div>
               </section>
             </div>
           )}
 
+          {/* ── MEETINGS ── */}
           {tab === "Meetings" && (
             <div className="space-y-4">
               <section className="rounded-3xl bg-gradient-to-r from-sky-600 to-indigo-500 p-5 text-white shadow-lg"><h1 className="mt-1 text-2xl font-bold">Find support wherever you are.</h1></section>
@@ -1045,7 +864,7 @@ function RiverOfHopeApp() {
                 <div className="flex items-center gap-2 mb-2"><span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold text-white">Featured · JRM</span></div>
                 <h3 className="text-base font-bold text-slate-900">JRM Bible/Prayer Support Group</h3>
                 <p className="mt-1 text-sm text-slate-600">Reformed Church in Syracuse · 1228 Teall Ave, Syracuse, NY 13206</p>
-                <p className="mt-1 text-xs text-slate-500">2nd & 4th Tuesday · Led by @revpatrishs</p>
+                <p className="mt-1 text-xs text-slate-500">2nd & 4th Tuesday · Led by @revpatrishs · Time on Facebook</p>
                 <div className="mt-4 grid grid-cols-2 gap-2">
                   <a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-emerald-600 px-3 py-2 text-sm font-bold text-white">Join Zoom →</a>
                   <a href="https://maps.google.com/?q=1228+Teall+Ave+Syracuse+NY+13206" target="_blank" rel="noreferrer" className="block text-center rounded-2xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700">Directions 🗺️</a>
@@ -1064,13 +883,15 @@ function RiverOfHopeApp() {
             </div>
           )}
 
+          {/* ── RESOURCES ── */}
           {tab === "Resources" && (
             <div className="space-y-4">
-              <section className="rounded-3xl bg-gradient-to-r from-indigo-600 to-sky-500 p-5 text-white shadow-lg"><h1 className="mt-1 text-2xl font-bold">Your recovery network.</h1><p className="mt-2 text-sm text-white/80">Churches, programs, hotlines, and resources — all in one place.</p></section>
+              <section className="rounded-3xl bg-gradient-to-r from-indigo-600 to-sky-500 p-5 text-white shadow-lg"><h1 className="mt-1 text-2xl font-bold">Your recovery network.</h1><p className="mt-2 text-sm text-white/80">Churches, programs, hotlines, and sober events — all in one place.</p></section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-2 ring-sky-300">
                 <div className="flex items-center gap-2 mb-3"><span className="rounded-full bg-sky-600 px-3 py-1 text-xs font-bold text-white">Home Church</span><span className="text-xs font-semibold text-emerald-600">JRM Partner</span></div>
                 <h3 className="text-base font-bold text-slate-900">Reformed Church in Syracuse</h3>
                 <p className="mt-1 text-sm text-slate-600">1228 Teall Ave, Syracuse, NY 13206</p>
+                <p className="mt-1 text-xs text-slate-400">Service times posted on Facebook each week</p>
                 <div className="mt-3 grid grid-cols-3 gap-2">
                   <a href="https://maps.google.com/?q=1228+Teall+Ave+Syracuse+NY+13206" target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-sky-600 px-3 py-2 text-xs font-bold text-white">Directions 🗺️</a>
                   <a href="https://www.facebook.com/reformedchurchsyracuse" target="_blank" rel="noreferrer" className="block text-center rounded-2xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700">Facebook 👍</a>
@@ -1088,22 +909,38 @@ function RiverOfHopeApp() {
                       <p className="mt-1 text-xs text-slate-600">{p.desc}</p>
                       {expandedProgram === p.id && (
                         <div className="mt-3 rounded-2xl bg-white border border-emerald-200 p-3">
-                          {p.id === 1 && <div className="space-y-2"><a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-sky-600 py-2 text-xs font-bold text-white">Join Zoom →</a><button onClick={() => openRsvp("jrm-bible", "JRM Bible/Prayer Support Group")} className="block w-full text-center rounded-xl border border-emerald-300 py-2 text-xs font-bold text-emerald-700">RSVP In-Person →</button></div>}
-                          {p.id === 2 && <button onClick={() => openRsvp("prayer-support", "Prayer & Support Group")} className="block w-full text-center rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">RSVP →</button>}
-                          {p.id === 3 && <a href="mailto:info@jordanriverministries.org?subject=Women%27s%20Home%20Application" className="block text-center rounded-xl bg-rose-600 py-2 text-xs font-bold text-white">Apply for housing →</a>}
-                          {p.id === 4 && <a href="https://www.celebraterecovery.com" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">Find a meeting →</a>}
-                          {p.id === 5 && <a href="https://www.teenchallenge.org" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">Learn more →</a>}
+                          <p className="text-xs font-bold text-emerald-800 mb-2">Contact & Join</p>
+                          {p.id === 1 && (<div className="space-y-2"><a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-sky-600 py-2 text-xs font-bold text-white">Join 2nd Tuesday Zoom →</a><a href="https://us04web.zoom.us/j/79037279665?pwd=uqwJaVlRPYXNBL2LCiaIGZZeMEpRqk.1" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-sky-600 py-2 text-xs font-bold text-white">Join 4th Tuesday Zoom →</a><button onClick={() => openRsvp("jrm-bible", "JRM Bible/Prayer Support Group")} className="block w-full text-center rounded-xl border border-emerald-300 py-2 text-xs font-bold text-emerald-700">RSVP In-Person →</button><a href="https://maps.google.com/?q=1228+Teall+Ave+Syracuse+NY+13206" target="_blank" rel="noreferrer" className="block text-center rounded-xl border border-slate-200 py-2 text-xs font-semibold text-slate-600">Get directions 🗺️</a></div>)}
+                          {p.id === 2 && (<div className="space-y-2"><button onClick={() => openRsvp("prayer-support", "Prayer & Support Group")} className="block w-full text-center rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">RSVP — Prayer & Support Group →</button><a href="mailto:info@jordanriverministries.org?subject=Prayer%20and%20Support%20Group" className="block text-center rounded-xl border border-slate-200 py-2 text-xs font-semibold text-slate-600">Contact us →</a></div>)}
+                          {p.id === 3 && (<div className="space-y-2"><a href="mailto:info@jordanriverministries.org?subject=Women%27s%20Home%20Application" className="block text-center rounded-xl bg-rose-600 py-2 text-xs font-bold text-white">Apply for housing →</a></div>)}
+                          {p.id === 4 && (<a href="https://www.celebraterecovery.com" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">Find a meeting → celebraterecovery.com</a>)}
+                          {p.id === 5 && (<a href="https://www.teenchallenge.org" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">Learn more → teenchallenge.org</a>)}
                         </div>
                       )}
-                      <button onClick={() => setExpandedProgram(expandedProgram === p.id ? null : p.id)} className="mt-3 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white">{expandedProgram === p.id ? "Close ▲" : "Learn more ▼"}</button>
+                      <div className="mt-3 flex gap-2">
+                        <button onClick={() => setExpandedProgram(expandedProgram === p.id ? null : p.id)} className="rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white">{expandedProgram === p.id ? "Close ▲" : "Learn more ▼"}</button>
+                        {p.id === 1 && <button onClick={() => openRsvp("jrm-bible", "JRM Bible/Prayer Support Group")} className="rounded-xl border border-emerald-300 px-4 py-2 text-xs font-bold text-emerald-700">RSVP</button>}
+                        {p.id === 2 && <button onClick={() => openRsvp("prayer-support", "Prayer & Support Group")} className="rounded-xl border border-emerald-300 px-4 py-2 text-xs font-bold text-emerald-700">RSVP</button>}
+                      </div>
                     </div>
                   ))}
                 </div>
               </section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <h2 className="text-lg font-bold text-slate-900 mb-4">Crisis hotlines</h2>
+                <div className="space-y-3">{HOTLINES.map(h => (<div key={h.name} className="flex items-start gap-3 rounded-2xl border border-slate-200 px-4 py-3"><div className="flex-1"><div className="flex items-center gap-2 flex-wrap"><p className="text-sm font-bold text-slate-900">{h.name}</p><span className="rounded-full bg-red-50 px-2 py-0.5 text-xs font-bold text-red-700">{h.tag}</span></div><p className="text-sm font-semibold text-sky-700 mt-0.5">{h.number}</p></div>{h.tel && <a href={`tel:${h.tel}`} className="shrink-0 rounded-xl bg-red-600 px-3 py-2 text-xs font-bold text-white">Call</a>}</div>))}</div>
+              </section>
+              <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
+                <h2 className="text-lg font-bold text-slate-900 mb-3">Sober event calendar</h2>
                 <div className="space-y-3">
-                  {HOTLINES.map(h => (<div key={h.name} className="flex items-start gap-3 rounded-2xl border border-slate-200 px-4 py-3"><div className="flex-1"><div className="flex items-center gap-2 flex-wrap"><p className="text-sm font-bold text-slate-900">{h.name}</p><span className="rounded-full bg-red-50 px-2 py-0.5 text-xs font-bold text-red-700">{h.tag}</span></div><p className="text-sm font-semibold text-sky-700 mt-0.5">{h.number}</p></div>{h.tel && <a href={`tel:${h.tel}`} className="shrink-0 rounded-xl bg-red-600 px-3 py-2 text-xs font-bold text-white">Call</a>}</div>))}
+                  {[{ id: "jrm-bible-event", title: "JRM Bible/Prayer Support Group", org: "Jordan River Ministries", date: "2nd & 4th Tuesday each month", type: "Bible Study", location: "Reformed Church in Syracuse · 1228 Teall Ave" }, { id: "game-night", title: "Sober Game & Fellowship Night", org: "JRM Community", date: "Monthly — check Facebook", type: "Social", location: "TBA · Syracuse, NY" }, { id: "womens-brunch-event", title: "Women's Recovery Brunch", org: "Jordan River Women's Home", date: "Quarterly", type: "Women", location: "Syracuse, NY" }, { id: "prayer-walk", title: "Community Prayer Walk", org: "JRM", date: "Seasonal", type: "Outdoor", location: "Syracuse, NY" }].map(e => (
+                    <div key={e.id} className="rounded-2xl border border-slate-200 px-4 py-3">
+                      <div className="flex items-start justify-between gap-3">
+                        <div><span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-bold text-indigo-800">{e.type}</span><h3 className="mt-2 text-sm font-bold text-slate-900">{e.title}</h3><p className="text-xs text-slate-500 mt-0.5">{e.org}</p><p className="text-xs font-semibold text-sky-700 mt-0.5">{e.date}</p><p className="text-xs text-slate-500">{e.location}</p></div>
+                        <button onClick={() => openRsvp(e.id, e.title)} className="shrink-0 mt-5 rounded-xl bg-sky-600 px-3 py-2 text-xs font-bold text-white">RSVP →</button>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </section>
               <section className="rounded-3xl bg-gradient-to-r from-amber-500 to-orange-400 p-5 text-white shadow-lg">
@@ -1114,10 +951,11 @@ function RiverOfHopeApp() {
             </div>
           )}
 
+          {/* ── BOARD ── */}
           {tab === "Board" && (
             <div className="space-y-4">
               <section className="rounded-3xl bg-gradient-to-r from-emerald-700 to-teal-600 p-5 text-white shadow-lg"><h1 className="mt-1 text-2xl font-bold">River Community Board</h1><p className="mt-2 text-sm text-white/85">Sober events, faith gatherings, and community announcements.</p></section>
-              <div className="space-y-3">
+              <section className="space-y-3">
                 {[
                   { id: "board-jrm", title: "JRM Bible/Prayer Support Group", org: "Jordan River Ministries", date: "2nd & 4th Tuesday", type: "Faith", location: "Reformed Church in Syracuse · 1228 Teall Ave", desc: "Led by Rev. Dr. Patrishs. Faith-centered healing, scripture, accountability, and real community.", featured: true },
                   { id: "board-womens", title: "Jordan River Women's Home — Now Accepting Applications", org: "Jordan River Ministries", date: "Ongoing", type: "Women", location: "Syracuse, NY", desc: "Aftercare residential program for women transitioning out of rehabilitation.", featured: true },
@@ -1140,7 +978,7 @@ function RiverOfHopeApp() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">Submit your event</p>
                 <div className="space-y-2">
@@ -1151,20 +989,22 @@ function RiverOfHopeApp() {
             </div>
           )}
 
+          {/* ── PRIVACY ── */}
           {tab === "Privacy" && (
             <div className="space-y-4">
               <section className="rounded-3xl bg-gradient-to-r from-sky-700 to-indigo-600 p-5 text-white shadow-lg"><h1 className="mt-1 text-2xl font-bold">Privacy Policy</h1><p className="mt-2 text-sm text-white/85">Jordan River Ministries · Effective: March 2026</p></section>
-              {[{ title: "Information we collect", text: "When you use River of Hope, you may choose to provide your first name, sobriety date, personal goals, triggers, and accountability contacts. All information you enter is stored locally on your device. We do not collect, store, or sell your personal information on our servers." }, { title: "How we use your information", text: "Information you provide is used solely to personalize your experience within the app. We do not share your information with third parties for marketing purposes." }, { title: "AI Recovery Chat", text: "The AI Recovery Chat is powered by Anthropic's Claude API. Messages you send are processed by Anthropic to generate responses. Do not share sensitive financial or identifying information in the chat." }, { title: "Children's privacy", text: "River of Hope is not intended for use by children under the age of 13." }, { title: "Crisis situations", text: "River of Hope provides recovery support tools but is not a substitute for professional medical or mental health treatment. If you are in crisis, please contact emergency services (911) or the SAMHSA Helpline at 1-800-662-4357." }, { title: "Contact us", text: "For questions about this Privacy Policy, contact Jordan River Ministries through our Facebook page or at riverofhopeapp.com." }].map((item, i) => (<section key={i} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100"><h2 className="text-base font-bold text-slate-900 mb-2">{item.title}</h2><p className="text-sm leading-7 text-slate-600">{item.text}</p></section>))}
+              {[{ title: "Information we collect", text: "When you use River of Hope, you may choose to provide your first name, sobriety date, personal goals, triggers, and accountability contacts. All information you enter is stored locally on your device. We do not collect, store, or sell your personal information on our servers." }, { title: "How we use your information", text: "Information you provide is used solely to personalize your experience within the app. We do not share your information with third parties for marketing purposes." }, { title: "AI Recovery Chat", text: "The AI Recovery Chat is powered by Anthropic's Claude API. Messages you send are processed by Anthropic to generate responses. Do not share sensitive financial or identifying information in the chat." }, { title: "Children's privacy", text: "River of Hope is not intended for use by children under the age of 13." }, { title: "Crisis situations", text: "River of Hope provides recovery support tools but is not a substitute for professional medical or mental health treatment. If you are in crisis, please contact emergency services (911) or the SAMHSA Helpline at 1-800-662-4357." }, { title: "Planning for Success services", text: "Coaching and life skills services are offered through Jordan River Ministries and its Coach Network. These services are for personal development and are not a substitute for professional legal, financial, or medical advice." }, { title: "Contact us", text: "For questions about this Privacy Policy, contact Jordan River Ministries through our Facebook page or at riverofhopeapp.com." }].map((item, i) => (<section key={i} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100"><h2 className="text-base font-bold text-slate-900 mb-2">{item.title}</h2><p className="text-sm leading-7 text-slate-600">{item.text}</p></section>))}
               <p className="text-center text-xs text-slate-400 pb-4">© 2026 Jordan River Ministries · All rights reserved.</p>
             </div>
           )}
 
+          {/* ── TERMS ── */}
           {tab === "Terms" && (
             <div className="space-y-4">
               <section className="rounded-3xl bg-gradient-to-r from-indigo-700 to-sky-600 p-5 text-white shadow-lg"><h1 className="mt-1 text-2xl font-bold">Terms of Service</h1><p className="mt-2 text-sm text-white/85">Jordan River Ministries · Effective: March 2026</p></section>
-              {[{ title: "1. About River of Hope", text: "River of Hope is a faith-based recovery support application created and operated by Jordan River Ministries, founded by Rev. Dr. Patricia Simmons." }, { title: "2. Not a medical service", text: "River of Hope is a spiritual and practical support tool. It is NOT a medical service, mental health treatment, or substitute for professional counseling." }, { title: "3. Emergency situations", text: "If you are in immediate danger, call 911. For addiction crisis support call SAMHSA at 1-800-662-4357 or text HOME to 741741." }, { title: "4. Acceptable use", text: "You agree to use River of Hope for its intended purpose — personal recovery support, faith encouragement, and community connection." }, { title: "5. Planning for Success services", text: "Coaching, life skills, and program services are offered through Jordan River Ministries and its Coach Network. All services are for personal development purposes and are not a substitute for professional legal, financial, or medical advice." }, { title: "6. Coach Network terms", text: "Coaches in the JRM Network agree to offer services at a reduced rate for JRM clients. Annual memberships require a minimum 3-month commitment. Early cancellation forfeits the annual discount. Year 2 renewals are non-refundable. Coaches are encouraged to consult their own tax professional." }, { title: "7. Premium subscriptions", text: "River of Hope offers optional Premium and Family subscription plans. Subscription fees are billed monthly. You may cancel at any time." }, { title: "8. Faith-based nature", text: "River of Hope is a Christian faith-based application. Users of all backgrounds are welcome." }, { title: "9. Contact", text: "For questions, contact Jordan River Ministries through our Facebook page or at riverofhopeapp.com." }].map((item, i) => (<section key={i} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100"><h2 className="text-base font-bold text-slate-900 mb-2">{item.title}</h2><p className="text-sm leading-7 text-slate-600">{item.text}</p></section>))}
+              {[{ title: "1. About River of Hope", text: "River of Hope is a faith-based recovery support application created and operated by Jordan River Ministries, founded by Rev. Dr. Patricia Simmons." }, { title: "2. Not a medical service", text: "River of Hope is a spiritual and practical support tool. It is NOT a medical service, mental health treatment, or substitute for professional counseling." }, { title: "3. Emergency situations", text: "If you are in immediate danger, call 911. For addiction crisis support call SAMHSA at 1-800-662-4357 or text HOME to 741741." }, { title: "4. Acceptable use", text: "You agree to use River of Hope for its intended purpose — personal recovery support, faith encouragement, and community connection." }, { title: "5. Planning for Success services", text: "Coaching, life skills, and program services are offered through Jordan River Ministries and its Coach Network. All services are for personal development and are not a substitute for professional legal, financial, or medical advice." }, { title: "6. Coach Network terms", text: "Coaches in the JRM Network agree to offer services at a reduced rate for JRM clients. Annual memberships require a minimum 3-month commitment. Early cancellation forfeits the annual discount. Year 2 renewals are non-refundable. Coaches are encouraged to consult their own tax professional." }, { title: "7. Premium subscriptions", text: "River of Hope offers optional Premium and Family subscription plans. Subscription fees are billed monthly. You may cancel at any time." }, { title: "8. Faith-based nature", text: "River of Hope is a Christian faith-based application. Users of all backgrounds are welcome." }, { title: "9. Contact", text: "For questions, contact Jordan River Ministries through our Facebook page or at riverofhopeapp.com." }].map((item, i) => (<section key={i} className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100"><h2 className="text-base font-bold text-slate-900 mb-2">{item.title}</h2><p className="text-sm leading-7 text-slate-600">{item.text}</p></section>))}
               <section className="rounded-3xl bg-sky-50 border border-sky-200 p-5">
-                <label className="flex items-start gap-3 cursor-pointer"><input type="checkbox" checked={termsAgreed} onChange={e => { if (e.target.checked) agreeToTerms(); }} className="mt-0.5 h-5 w-5 rounded accent-sky-600" /><div><p className="text-sm font-bold text-slate-900">I agree to these Terms of Service</p><p className="text-xs text-slate-500 mt-0.5">By checking this box you confirm you have read and agree to the Terms of Service and Privacy Policy of River of Hope.</p></div></label>
+                <label className="flex items-start gap-3 cursor-pointer"><input type="checkbox" checked={termsAgreed} onChange={e => { if (e.target.checked) agreeToTerms(); }} className="mt-0.5 h-5 w-5 rounded accent-sky-600" /><div><p className="text-sm font-bold text-slate-900">I agree to these Terms of Service</p><p className="text-xs text-slate-500 mt-0.5">By checking this box you confirm you have read and agree to the Terms of Service and Privacy Policy of River of Hope · Jordan River Ministries.</p></div></label>
                 {termsAgreed && <p className="mt-3 text-xs font-bold text-emerald-700">✓ You have agreed to the Terms of Service.</p>}
               </section>
               <p className="text-center text-xs text-slate-400 pb-4">© 2026 Jordan River Ministries · Rev. Dr. Patricia Simmons · All rights reserved.</p>
@@ -1188,18 +1028,20 @@ function RiverOfHopeApp() {
           {termsAgreed && <span className="text-emerald-500 font-bold text-xs">✓ Agreed</span>}
         </div>
 
+        {/* ── 7-TAB NAVIGATION ── */}
         <nav className="fixed bottom-0 left-1/2 z-20 flex w-full max-w-md -translate-x-1/2 justify-around border-t border-slate-200 bg-white/95 px-1 py-2 backdrop-blur">
           {[
             { l: "Home", i: "🏠", t: "Home" },
             { l: "Chat", i: "💬", t: "Chat" },
             { l: "Safety", i: "🛡️", t: "Safety" },
+            { l: "Board", i: "📋", t: "Board" },
             { l: "Plan", i: "🌱", t: "Planning" },
             { l: "Devotional", i: "📖", t: "Devotional" },
             { l: "Resources", i: "🌐", t: "Resources" },
           ].map(item => (
-            <button key={item.t} onClick={() => setTab(item.t)} className={`flex min-w-0 flex-col items-center rounded-2xl px-2 py-2 transition ${tab === item.t ? "bg-sky-100 text-sky-900" : "text-slate-400"}`}>
+            <button key={item.t} onClick={() => setTab(item.t)} className={`flex min-w-0 flex-col items-center rounded-2xl px-1.5 py-2 transition ${tab === item.t ? "bg-sky-100 text-sky-900" : "text-slate-400"}`}>
               <span className="text-base">{item.i}</span>
-              <span className="mt-0.5 text-[10px] font-semibold">{item.l}</span>
+              <span className="mt-0.5 text-[9px] font-semibold">{item.l}</span>
             </button>
           ))}
         </nav>
