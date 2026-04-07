@@ -418,7 +418,7 @@ function RiverOfHopeApp() {
         </section>
         <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-rose-100">
           <h2 className="text-base font-bold text-slate-900 mb-1">Life Skills offered at the Women's Home</h2>
-          <p className="text-xs text-slate-400 mb-4">Services provided as part of the residential program</p>
+          <p className="text-xs text-slate-500 mb-4">These life skill classes are offered to the community at the prices listed, but are also offered as part of the Jordan River Women's Home program services.</p>
           <div className="space-y-3">
             {PLANNING_SERVICES.womensHome.lifeSkills.map((skill, i) => (
               <div key={i} className="rounded-2xl border border-slate-200 overflow-hidden">
@@ -987,19 +987,6 @@ function RiverOfHopeApp() {
             <div className="space-y-4">
               <section className="rounded-3xl bg-gradient-to-r from-emerald-700 to-teal-600 p-5 text-white shadow-lg"><h1 className="mt-1 text-2xl font-bold">River Community Board</h1><p className="mt-2 text-sm text-white/85">Sober events, faith gatherings, and community announcements.</p></section>
 
-              {/* Sponsor Banner */}
-              <section className="rounded-3xl bg-gradient-to-r from-amber-600 to-yellow-500 p-5 text-white shadow-lg">
-                <div className="flex items-center gap-2 mb-2"><span className="rounded-full bg-white/20 px-3 py-1 text-xs font-bold">⭐ Prime Placement</span><span className="text-xs font-bold text-white/80">LIMITED · 3 spots/month</span></div>
-                <h2 className="text-lg font-bold">River Community Board — Sponsor Banner</h2>
-                <p className="mt-1 text-sm text-white/90">Prime banner placement at the top of the River Community Board · Full organization branding · Rotating banner · Seen by all River of Hope users.</p>
-                <div className="mt-2 rounded-2xl bg-white/15 p-3">
-                  <p className="text-xs font-bold text-white">📅 Submission deadline: 30 days before post date</p>
-                  <p className="text-xs text-white/80 mt-0.5">Submit your banner and branding materials at least 30 days before your desired posting date to guarantee placement.</p>
-                </div>
-                <div className="mt-4 flex gap-2">
-                  <a href="https://buy.stripe.com/bJe3cu1SE6S29RM1Aa1VK09" target="_blank" rel="noreferrer" className="flex-1 block text-center rounded-2xl bg-white py-3 text-sm font-bold text-amber-700">Reserve your spot — $199/mo →</a>
-                </div>
-              </section>
 
               {/* Recovery Partners for Corporations */}
               <section className="rounded-3xl bg-indigo-50 p-5 shadow-sm ring-2 ring-indigo-200">
@@ -1055,6 +1042,18 @@ function RiverOfHopeApp() {
                   <a href="mailto:info@jordanriverministries.org?subject=River%20Community%20Board%20-%20Free%20Listing" className="block text-center w-full rounded-2xl bg-emerald-600 py-2 text-xs font-bold text-white">Submit free listing →</a>
                   <a href="https://buy.stripe.com/bJe3cu1SE6S29RM1Aa1VK09" target="_blank" rel="noreferrer" className="block text-center w-full rounded-2xl bg-amber-500 py-2 text-xs font-bold text-white">Featured listing — $49 →</a>
                 </div>
+              </section>
+
+              {/* Sponsor Banner - moved to bottom */}
+              <section className="rounded-3xl bg-gradient-to-r from-amber-600 to-yellow-500 p-5 text-white shadow-lg">
+                <div className="flex items-center gap-2 mb-2"><span className="rounded-full bg-white/20 px-3 py-1 text-xs font-bold">⭐ Prime Placement</span><span className="text-xs font-bold text-white/80">LIMITED · 3 spots/month</span></div>
+                <h2 className="text-lg font-bold">River Community Board — Sponsor Banner</h2>
+                <p className="mt-1 text-sm text-white/90">Prime banner placement at the top of the River Community Board · Full organization branding · Rotating banner · Seen by all River of Hope users.</p>
+                <div className="mt-2 rounded-2xl bg-white/15 p-3">
+                  <p className="text-xs font-bold text-white">📅 Submission deadline: 30 days before post date</p>
+                  <p className="text-xs text-white/80 mt-0.5">Submit your banner and branding materials at least 30 days before your desired posting date to guarantee placement.</p>
+                </div>
+                <a href="https://buy.stripe.com/bJe9AS9l60tE0hcgv41VK0u" target="_blank" rel="noreferrer" className="mt-4 block text-center rounded-2xl bg-white py-3 text-sm font-bold text-amber-700">Reserve your spot — $199/mo →</a>
               </section>
             </div>
           )}
