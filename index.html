@@ -72,9 +72,10 @@ const HOTLINES = [
 ];
 
 const FAITH_PROGRAMS = [
-  { id: 1, name: "JRM Bible/Prayer Support Group", type: "Recovery Bible Study", format: "2nd & 4th Tuesday", desc: "Led by @revpatrishs at Reformed Church in Syracuse. Faith-centered healing, accountability, scripture, and real community.", featured: true, address: "Reformed Church in Syracuse · 1228 Teall Ave, Syracuse, NY 13206" },
+  { id: 1, name: "JRM Bible/Prayer Support Group", type: "Recovery Bible Study", format: "2nd & 4th Tuesday", desc: "Led by Rev. Dr. Patrishs · Jordan River Ministries. Faith-centered healing, accountability, scripture, and real community.", featured: true, address: "Syracuse, NY · Contact for location details" },
   { id: 2, name: "Prayer & Support Group", type: "Ongoing Support", format: "Ongoing", desc: "Ongoing prayer and recovery support for those in every stage of their journey. Faith meets real life here.", featured: true, address: "Jordan River Ministries · Syracuse, NY" },
   { id: 3, name: "Jordan River Women's Home", type: "Aftercare Housing", format: "Residential", desc: "Aftercare for women ready to live out what they learned in recovery — gaining wins, building confidence, and growing in God.", featured: true, address: "Syracuse, NY — contact for details" },
+  { id: 6, name: "Your Church Could Be Here", type: "Church Partner", format: "Ongoing", desc: "Is your church passionate about recovery ministry? Partner with Jordan River Ministries and have your congregation, events, and programs featured right here for every River of Hope user in your area.", featured: false, address: "Contact JRM to become a Church Partner — $99/month" },
   { id: 4, name: "Celebrate Recovery", type: "Faith-based 12-step", format: "Weekly", desc: "Christ-centered recovery for all hurts, habits, and hang-ups. Meets at multiple churches in the Syracuse area.", address: "Multiple locations — Syracuse, NY" },
   { id: 5, name: "Teen Challenge", type: "Residential program", format: "Long-term", desc: "Faith-based residential program for adults with life-controlling issues, including addiction.", address: "Search local Teen Challenge location" },
 ];
@@ -695,7 +696,7 @@ function RiverOfHopeApp() {
               <section className="rounded-3xl bg-emerald-50 p-5 shadow-sm ring-1 ring-emerald-200">
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">JRM Bible/Prayer Support Group</p>
                 <h2 className="mt-1 text-base font-bold text-slate-900">2nd & 4th Tuesday each month</h2>
-                <p className="mt-1 text-sm text-slate-600">Reformed Church in Syracuse · 1228 Teall Ave, Syracuse, NY 13206</p>
+                <p className="mt-1 text-sm text-slate-600">Syracuse, NY · Contact for location details</p>
                 <p className="mt-1 text-xs text-slate-400">Time posted weekly on Facebook · Led by @revpatrishs</p>
                 <div className="mt-4 grid grid-cols-2 gap-2">
                   <a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-emerald-600 py-3 text-sm font-bold text-white">Join on Zoom →</a>
@@ -806,7 +807,7 @@ function RiverOfHopeApp() {
               <section className="rounded-3xl bg-emerald-50 p-5 shadow-sm ring-1 ring-emerald-200">
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">JRM Bible/Prayer Support Group</p>
                 <h2 className="mt-1 text-base font-bold text-slate-900">2nd & 4th Tuesday of each month</h2>
-                <p className="mt-1 text-sm text-slate-600">Reformed Church in Syracuse · 1228 Teall Ave, Syracuse, NY 13206</p>
+                <p className="mt-1 text-sm text-slate-600">Syracuse, NY · Contact for location details</p>
                 <div className="mt-4 space-y-2">
                   <a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center w-full rounded-2xl bg-emerald-600 py-3 text-sm font-bold text-white">Join on Zoom →</a>
                   <button onClick={() => openRsvp("jrm-bible", "JRM Bible/Prayer Support Group")} className="w-full rounded-2xl border border-emerald-300 py-3 text-sm font-bold text-emerald-700">RSVP — JRM Bible/Prayer Support Group</button>
@@ -906,11 +907,11 @@ function RiverOfHopeApp() {
               <section className="rounded-3xl bg-emerald-50 p-5 shadow-sm ring-2 ring-emerald-300">
                 <div className="flex items-center gap-2 mb-2"><span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold text-white">Featured · JRM</span></div>
                 <h3 className="text-base font-bold text-slate-900">JRM Bible/Prayer Support Group</h3>
-                <p className="mt-1 text-sm text-slate-600">Reformed Church in Syracuse · 1228 Teall Ave, Syracuse, NY 13206</p>
+                <p className="mt-1 text-sm text-slate-600">Syracuse, NY · Contact for location details</p>
                 <p className="mt-1 text-xs text-slate-500">2nd & 4th Tuesday · Led by @revpatrishs · Time on Facebook</p>
                 <div className="mt-4 grid grid-cols-2 gap-2">
                   <a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-emerald-600 px-3 py-2 text-sm font-bold text-white">Join Zoom →</a>
-                  <a href="https://maps.google.com/?q=1228+Teall+Ave+Syracuse+NY+13206" target="_blank" rel="noreferrer" className="block text-center rounded-2xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700">Directions 🗺️</a>
+                  
                 </div>
                 <button onClick={() => openRsvp("jrm-bible", "JRM Bible/Prayer Support Group")} className="mt-2 w-full rounded-2xl bg-sky-600 py-2 text-sm font-bold text-white">RSVP →</button>
               </section>
@@ -932,12 +933,12 @@ function RiverOfHopeApp() {
               <section className="rounded-3xl bg-gradient-to-r from-indigo-600 to-sky-500 p-5 text-white shadow-lg"><h1 className="mt-1 text-2xl font-bold">Your recovery network.</h1><p className="mt-2 text-sm text-white/80">Churches, programs, hotlines, and sober events — all in one place.</p></section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-2 ring-sky-300">
                 <div className="flex items-center gap-2 mb-3"><span className="rounded-full bg-sky-600 px-3 py-1 text-xs font-bold text-white">Home Church</span><span className="text-xs font-semibold text-emerald-600">JRM Partner</span></div>
-                <h3 className="text-base font-bold text-slate-900">Reformed Church in Syracuse</h3>
-                <p className="mt-1 text-sm text-slate-600">1228 Teall Ave, Syracuse, NY 13206</p>
+                <h3 className="text-base font-bold text-slate-900">JRM Bible & Prayer Support Group</h3>
+                <p className="mt-1 text-sm text-slate-600">Syracuse, NY · Contact for location details</p>
                 <p className="mt-1 text-xs text-slate-400">Service times posted on Facebook each week</p>
                 <div className="mt-3 grid grid-cols-3 gap-2">
-                  <a href="https://maps.google.com/?q=1228+Teall+Ave+Syracuse+NY+13206" target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-sky-600 px-3 py-2 text-xs font-bold text-white">Directions 🗺️</a>
-                  <a href="https://www.facebook.com/reformedchurchsyracuse" target="_blank" rel="noreferrer" className="block text-center rounded-2xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700">Facebook 👍</a>
+                  
+                  <a href="https://www.facebook.com/jordanriverministries.net" target="_blank" rel="noreferrer" className="block text-center rounded-2xl bg-blue-600 px-3 py-2 text-xs font-bold text-white">JRM on Facebook 📘</a>
                   <a href="tel:3154635011" className="block text-center rounded-2xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700">Call 📞</a>
                 </div>
               </section>
@@ -953,7 +954,7 @@ function RiverOfHopeApp() {
                       {expandedProgram === p.id && (
                         <div className="mt-3 rounded-2xl bg-white border border-emerald-200 p-3">
                           <p className="text-xs font-bold text-emerald-800 mb-2">Contact & Join</p>
-                          {p.id === 1 && (<div className="space-y-2"><a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-sky-600 py-2 text-xs font-bold text-white">Join 2nd Tuesday Zoom →</a><a href="https://us04web.zoom.us/j/79037279665?pwd=uqwJaVlRPYXNBL2LCiaIGZZeMEpRqk.1" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-sky-600 py-2 text-xs font-bold text-white">Join 4th Tuesday Zoom →</a><button onClick={() => openRsvp("jrm-bible", "JRM Bible/Prayer Support Group")} className="block w-full text-center rounded-xl border border-emerald-300 py-2 text-xs font-bold text-emerald-700">RSVP In-Person →</button><a href="https://maps.google.com/?q=1228+Teall+Ave+Syracuse+NY+13206" target="_blank" rel="noreferrer" className="block text-center rounded-xl border border-slate-200 py-2 text-xs font-semibold text-slate-600">Get directions 🗺️</a></div>)}
+                          {p.id === 1 && (<div className="space-y-2"><a href="https://us04web.zoom.us/j/78022773920?pwd=S3JDKQpNJJ7a2FMwK8aadM1cAVq8vi.1" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-sky-600 py-2 text-xs font-bold text-white">Join 2nd Tuesday Zoom →</a><a href="https://us04web.zoom.us/j/79037279665?pwd=uqwJaVlRPYXNBL2LCiaIGZZeMEpRqk.1" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-sky-600 py-2 text-xs font-bold text-white">Join 4th Tuesday Zoom →</a><button onClick={() => openRsvp("jrm-bible", "JRM Bible/Prayer Support Group")} className="block w-full text-center rounded-xl border border-emerald-300 py-2 text-xs font-bold text-emerald-700">RSVP In-Person →</button></div>)}
                           {p.id === 2 && (<div className="space-y-2"><button onClick={() => openRsvp("prayer-support", "Prayer & Support Group")} className="block w-full text-center rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">RSVP — Prayer & Support Group →</button><a href="mailto:info@jordanriverministries.org?subject=Prayer%20and%20Support%20Group" className="block text-center rounded-xl border border-slate-200 py-2 text-xs font-semibold text-slate-600">Contact us →</a></div>)}
                           {p.id === 3 && (<div className="space-y-2"><a href="mailto:info@jordanriverministries.org?subject=Women%27s%20Home%20Application" className="block text-center rounded-xl bg-rose-600 py-2 text-xs font-bold text-white">Apply for housing →</a></div>)}
                           {p.id === 4 && (<a href="https://www.celebraterecovery.com" target="_blank" rel="noreferrer" className="block text-center rounded-xl bg-emerald-600 py-2 text-xs font-bold text-white">Find a meeting → celebraterecovery.com</a>)}
@@ -976,7 +977,7 @@ function RiverOfHopeApp() {
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <h2 className="text-lg font-bold text-slate-900 mb-3">Sober event calendar</h2>
                 <div className="space-y-3">
-                  {[{ id: "jrm-bible-event", title: "JRM Bible/Prayer Support Group", org: "Jordan River Ministries", date: "2nd & 4th Tuesday each month", type: "Bible Study", location: "Reformed Church in Syracuse · 1228 Teall Ave" }, { id: "game-night", title: "Sober Game & Fellowship Night", org: "JRM Community", date: "Monthly — check Facebook", type: "Social", location: "TBA · Syracuse, NY" }, { id: "womens-brunch-event", title: "Women's Recovery Brunch", org: "Jordan River Women's Home", date: "Quarterly", type: "Women", location: "Syracuse, NY" }, { id: "prayer-walk", title: "Community Prayer Walk", org: "JRM", date: "Seasonal", type: "Outdoor", location: "Syracuse, NY" }].map(e => (
+                  {[{ id: "jrm-bible-event", title: "JRM Bible/Prayer Support Group", org: "Jordan River Ministries", date: "2nd & 4th Tuesday each month", type: "Bible Study", location: "Syracuse, NY · Contact for location" }, { id: "game-night", title: "Sober Game & Fellowship Night", org: "JRM Community", date: "Monthly — check Facebook", type: "Social", location: "TBA · Syracuse, NY" }, { id: "womens-brunch-event", title: "Women's Recovery Brunch", org: "Jordan River Women's Home", date: "Quarterly", type: "Women", location: "Syracuse, NY" }, { id: "prayer-walk", title: "Community Prayer Walk", org: "JRM", date: "Seasonal", type: "Outdoor", location: "Syracuse, NY" }].map(e => (
                     <div key={e.id} className="rounded-2xl border border-slate-200 px-4 py-3">
                       <div className="flex items-start justify-between gap-3">
                         <div><span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-bold text-indigo-800">{e.type}</span><h3 className="mt-2 text-sm font-bold text-slate-900">{e.title}</h3><p className="text-xs text-slate-500 mt-0.5">{e.org}</p><p className="text-xs font-semibold text-sky-700 mt-0.5">{e.date}</p><p className="text-xs text-slate-500">{e.location}</p></div>
@@ -1026,7 +1027,7 @@ function RiverOfHopeApp() {
 
               <section className="space-y-3">
                 {[
-                  { id: "board-jrm", title: "JRM Bible/Prayer Support Group", org: "Jordan River Ministries", date: "2nd & 4th Tuesday", type: "Faith", location: "Reformed Church in Syracuse · 1228 Teall Ave", desc: "Led by Rev. Dr. Patrishs. Faith-centered healing, scripture, accountability, and real community.", featured: true },
+                  { id: "board-jrm", title: "JRM Bible/Prayer Support Group", org: "Jordan River Ministries", date: "2nd & 4th Tuesday", type: "Faith", location: "Syracuse, NY · Contact for location", desc: "Led by Rev. Dr. Patrishs. Faith-centered healing, scripture, accountability, and real community.", featured: true },
                   { id: "board-womens", title: "Jordan River Women's Home — Now Accepting Applications", org: "Jordan River Ministries", date: "Ongoing", type: "Women", location: "Syracuse, NY", desc: "Aftercare residential program for women transitioning out of rehabilitation.", featured: true },
                   { id: "board-planning", title: "Planning for Success Program", org: "Jordan River Ministries", date: "Ongoing — Enroll anytime", type: "Life Skills", location: "River of Hope App", desc: "Life skills, resume writing, financial planning, interview coaching, and 1-on-1 coaching with Rev. Dr. Patrishs.", featured: true },
                   { id: "board-cr", title: "Celebrate Recovery", org: "Local Churches", date: "Weekly — Fridays", type: "Recovery", location: "Multiple locations — Syracuse area", desc: "Christ-centered recovery for all hurts, habits, and hang-ups.", featured: false },
