@@ -229,7 +229,7 @@ function RiverOfHopeApp() {
   const sendChat = async () => {
     if (!input.trim() || loading) return;
     const chatCount = msgs.filter(m => m.role === "user").length;
-    if (profile.plan === "free" && chatCount >= 2) { setShowUpgrade(true); return; }
+    if (profile.plan === "free" && chatCount >= 3) { setShowUpgrade(true); return; }
     const txt = input.trim(); setInput(""); setLoading(true);
     setMsgs(p => [...p, { role: "user", text: txt }]);
     try {
