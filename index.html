@@ -928,7 +928,7 @@ function RiverOfHopeApp() {
               </section>
               <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-sky-100">
                 <p className="text-xs font-bold uppercase tracking-wider text-sky-700 mb-3">Other local meetings · Syracuse, NY</p>
-                {[{ name: "NA Meeting — Syracuse Central", type: "NA", time: "Daily · Various", loc: "Vera House, Syracuse" }, { name: "AA Open Discussion", type: "AA", time: "Mon & Thu · 7:00 PM", loc: "Elmwood Presbyterian, Syracuse" }, { name: "Celebrate Recovery", type: "Faith-based", time: "Friday · 6:30 PM", loc: "Multiple churches — check online" }].map((m, i) => (
+                {[{ name: "Find NA Meetings Near You", type: "NA", time: "Search by location", loc: "na.org/meetingsearch" }, { name: "Find AA Meetings Near You", type: "AA", time: "Search by location", loc: "aa.org/find-aa" }, { name: "Find Celebrate Recovery", type: "Faith-based", time: "Search by location", loc: "celebraterecovery.com/crgroups" }].map((m, i) => (
                   <div key={i} className="mb-3 flex items-start justify-between gap-3 rounded-2xl border border-slate-200 px-4 py-3">
                     <div><span className="rounded-full bg-sky-100 px-2 py-0.5 text-xs font-bold text-sky-800">{m.type}</span><p className="mt-1 text-sm font-semibold text-slate-900">{m.name}</p><p className="text-xs text-slate-500">{m.time} · {m.loc}</p></div>
                     <button onClick={() => openRsvp(`meeting-${i}`, m.name)} className="shrink-0 mt-1 rounded-xl bg-sky-600 px-3 py-2 text-xs font-bold text-white">RSVP</button>
